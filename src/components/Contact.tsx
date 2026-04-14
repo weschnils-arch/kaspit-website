@@ -45,7 +45,7 @@ export default function Contact() {
     <section id="contact" ref={sectionRef} className="relative z-10 py-32 section-padding">
       <div className="divider mb-32" />
 
-      <div className="max-w-2xl mx-auto space-y-16">
+      <div className="max-w-4xl mx-auto space-y-16">
         <p className="text-center text-primary font-display text-lg italic tracking-wide">
           We are ready when you are.
         </p>
@@ -144,21 +144,7 @@ export default function Contact() {
 
         {/* Contact details (below form, side by side) */}
         <div ref={contentRef}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 border border-dark-500 flex items-center justify-center shrink-0">
-                <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-text text-sm font-medium">European Headquarters</p>
-                <p className="text-text-muted text-sm">Vienna, Austria</p>
-                <p className="text-text-dim text-xs mt-1">Branches: Germany &middot; Israel</p>
-              </div>
-            </div>
-
+          <div className="flex flex-col sm:flex-row sm:justify-center gap-12">
             <a href="tel:+436643444616" className="flex items-start gap-4 group">
               <div className="w-10 h-10 border border-dark-500 flex items-center justify-center shrink-0 group-hover:border-primary/40 transition-colors">
                 <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

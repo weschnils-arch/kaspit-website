@@ -24,7 +24,7 @@ const services = [
   },
   {
     title: 'Emergency Assistance & Duty of Care',
-    desc: 'Emergency Assistance & Duty of Care Rapid worldwide response combined with full corporate Duty of Care.',
+    desc: 'Rapid worldwide response combined with full corporate Duty of Care.',
     href: '/services/emergency',
     num: '03',
   },

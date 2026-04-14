@@ -81,9 +81,8 @@ export default function Advantage() {
           <h1 data-reveal className="heading-xl mt-4 mb-6">
             <span className="whitespace-nowrap">Why KASPIT Security</span><br /><span className="text-primary">Stands Alone</span>
           </h1>
-          <p data-reveal className="body-lg max-w-2xl">
+          <p data-reveal className="body-lg whitespace-nowrap">
             Competitive edge through cutting-edge technology, best practices, and strategic depth.
-            While others offer standard guarding, we deliver true strategic resilience.
           </p>
         </div>
       </section>
