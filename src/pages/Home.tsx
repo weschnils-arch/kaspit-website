@@ -33,7 +33,7 @@ const services = [
   },
   {
     label: 'Intelligence',
-    title: 'Security Intelligence & Risk Consulting',
+    title: 'Intelligence',
     desc: 'Uncover the facts — no matter where they\'re hidden. Tactical approach. Global reach.',
     href: '/services/intelligence',
     num: '04',
