@@ -77,8 +77,7 @@ export default function About() {
       {/* Company Story */}
       <section ref={storyRef} className="section-padding py-24 lg:py-36 bg-dark-900">
         <div className="max-w-3xl mx-auto text-center" data-reveal>
-          <span className="label-text">Our Story</span>
-          <h2 className="heading-lg mt-4 mb-8">Built on <span className="text-primary">Principles</span></h2>
+          <h2 className="heading-lg mb-8">Company <span className="text-primary">Story</span></h2>
           <p className="body-lg mb-6">
             KASPIT Security was founded in Vienna as the elite boutique division of the
             international KASPIT Group. With dedicated branches in Austria and Germany (Europe)

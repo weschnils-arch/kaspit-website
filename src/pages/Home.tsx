@@ -170,22 +170,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section ref={statsRef} className="section-padding py-16 lg:py-20 bg-dark-900">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {stats.map((stat) => (
-            <div key={stat.label} data-reveal className="text-center lg:text-left">
-              <div className="text-3xl lg:text-4xl font-light text-primary font-display mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-text-muted tracking-wide">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Services */}
       <section ref={servicesRef} className="section-padding py-24 lg:py-36">
         <div data-reveal className="mb-16 lg:mb-24">
@@ -270,15 +254,10 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 text-center max-w-3xl mx-auto" data-reveal>
-          <span className="label-text">Take the First Step</span>
-          <h2 className="heading-lg mt-4 mb-6">
+          <h2 className="heading-lg mb-12">
             Ready to secure<br />
             <span className="text-primary">what matters most?</span>
           </h2>
-          <p className="body-lg mb-12 max-w-xl mx-auto">
-            Every conversation begins with discretion. Request a confidential risk assessment
-            or book a private consultation with Maxim.
-          </p>
           <div className="flex flex-col items-center gap-5 text-center">
             <MetalCTA
               to="/contact"

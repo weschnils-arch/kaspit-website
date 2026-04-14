@@ -12,19 +12,19 @@ const gains = [
 
 const approach = [
   {
-    title: 'Confidential Briefing',
+    title: 'Confidential briefing',
     desc: 'We begin with a private, no-obligation discussion to fully understand your objectives and constraints.',
   },
   {
-    title: 'Tailored Intelligence Strategy',
+    title: 'Tailored intelligence strategy',
     desc: 'We design a custom plan combining multiple intelligence disciplines for maximum effectiveness.',
   },
   {
-    title: 'Professional Execution',
+    title: 'Professional execution',
     desc: 'Our discreet team operates globally with precision and speed across our European and Middle Eastern branches.',
   },
   {
-    title: 'Actionable Report & Follow-Up',
+    title: 'Actionable report & follow-up',
     desc: 'You receive a clear, concise report with strategic next steps and ongoing support if required.',
   },
 ]
@@ -45,7 +45,7 @@ export default function Investigations() {
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[150px]" />
         </div>
         <div className="relative z-10 max-w-4xl">
-          <span data-reveal className="label-text">Service 01 — Investigations</span>
+          <span data-reveal className="label-text">Investigations</span>
           <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Intelligence-Driven<br /><span className="text-primary">Investigations</span>
           </h1>

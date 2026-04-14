@@ -27,19 +27,19 @@ const gains = [
 
 const approach = [
   {
-    title: 'Confidential Risk & Skills Assessment',
+    title: 'Confidential risk and skills-needs assessment',
     desc: 'We begin with a private review of your operational profile, threats faced, and existing capability gaps.',
   },
   {
-    title: 'Customised Program Design',
+    title: 'Fully customised program design and scenario planning',
     desc: 'Fully bespoke curriculum and scenario planning built around your exact destinations, threat levels and objectives.',
   },
   {
-    title: 'Intensive Hands-On Training',
+    title: 'Intensive hands-on training with elite, experienced instructors',
     desc: 'Delivered by elite, experienced instructors in small private groups or one-to-one format with absolute discretion.',
   },
   {
-    title: 'Evaluation & Refresher Plan',
+    title: 'Post-training evaluation, feedback and ongoing refresher plan',
     desc: 'Post-training feedback, performance evaluation, and a scheduled refresher plan to keep skills sharp over time.',
   },
 ]
@@ -61,7 +61,7 @@ export default function Training() {
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[150px]" />
         </div>
         <div className="relative z-10 max-w-4xl">
-          <span data-reveal className="label-text">Training Programs</span>
+          <span data-reveal className="label-text">Training</span>
           <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Elite Training &<br /><span className="text-primary">Capacity Building</span>
           </h1>
@@ -172,7 +172,7 @@ export default function Training() {
       <section ref={ctaRef} className="section-padding py-24 lg:py-36 bg-dark-900 text-center">
         <div data-reveal>
           <h2 className="heading-lg mb-6 whitespace-nowrap">
-            Build Real <span className="text-primary">Resilience</span> Today
+            Build real <span className="text-primary">resilience</span> today.
           </h2>
           <p className="body-lg mb-10 max-w-2xl mx-auto">
             Every program is customised to your exact risk profile and delivered by elite instructors.

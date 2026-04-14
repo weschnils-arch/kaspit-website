@@ -25,23 +25,23 @@ const scope = [
 
 const approach = [
   {
-    title: 'Confidential Briefing & Scope Definition',
+    title: 'Confidential briefing & scope definition',
     desc: 'We start with a private discussion to understand your objectives, constraints, and risk priorities.',
   },
   {
-    title: 'Thorough On-Site & Remote Assessment',
+    title: 'Thorough on-site and remote assessment',
     desc: 'Multi-disciplinary evaluation using proven intelligence methodologies and advanced analytical tools.',
   },
   {
-    title: 'Detailed Findings & Risk Mapping',
+    title: 'Detailed findings & risk mapping',
     desc: 'Clear presentation of vulnerabilities, their potential impact, and likelihood.',
   },
   {
-    title: 'Actionable Recommendations & Roadmap',
+    title: 'Actionable recommendations & roadmap',
     desc: 'Prioritised, practical steps with timelines, responsible parties, and estimated effort.',
   },
   {
-    title: 'Optional Implementation Support & Follow-Up Audit',
+    title: 'Optional implementation support & follow-up audit',
     desc: 'We can assist with rollout and conduct verification audits to confirm improvements.',
   },
 ]
@@ -63,9 +63,9 @@ export default function SecurityAudits() {
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[150px]" />
         </div>
         <div className="relative z-10 max-w-4xl">
-          <span data-reveal className="label-text">Service 03 — Security Audits</span>
+          <span data-reveal className="label-text">Security Audits</span>
           <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
-            Independent Security Audits &<br />
+            <span className="whitespace-nowrap">Independent Security Audits&nbsp;&amp;</span><br />
             <span className="text-primary">Compliance Reviews</span>
           </h1>
           <p data-reveal className="body-lg max-w-2xl">

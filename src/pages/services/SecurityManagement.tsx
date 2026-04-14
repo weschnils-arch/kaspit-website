@@ -13,19 +13,19 @@ const gains = [
 
 const approach = [
   {
-    title: 'Comprehensive Risk Assessment',
+    title: 'Comprehensive risk assessment',
     desc: 'We analyse your unique vulnerabilities across people, assets, operations, and compliance.',
   },
   {
-    title: 'Strategic Consulting & Concept Development',
+    title: 'Strategic consulting & concept development',
     desc: 'We design custom security architectures and policies tailored to your exact needs.',
   },
   {
-    title: 'Independent Security Audits',
+    title: 'Independent security audits',
     desc: 'Thorough, objective evaluations of current measures with clear findings and prioritised recommendations.',
   },
   {
-    title: 'Elite Implementation & Continuous Monitoring',
+    title: 'Elite implementation & continuous monitoring',
     desc: 'We support rollout and provide ongoing adaptation to evolving threats.',
   },
 ]
@@ -46,7 +46,7 @@ export default function SecurityManagement() {
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[150px]" />
         </div>
         <div className="relative z-10 max-w-4xl">
-          <span data-reveal className="label-text">Service 02 — Security Management</span>
+          <span data-reveal className="label-text">Security Management</span>
           <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Strategic Security Management,<br />
             <span className="text-primary">Consulting & Audits</span>

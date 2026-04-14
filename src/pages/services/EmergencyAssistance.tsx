@@ -21,19 +21,19 @@ const gains = [
 
 const approach = [
   {
-    title: 'Pre-Travel Risk Profiling',
+    title: 'Pre-travel risk profiling and bespoke contingency planning',
     desc: 'Bespoke contingency planning based on destinations, threat landscape and personnel profiles.',
   },
   {
-    title: 'Real-Time Monitoring',
+    title: 'Real-time monitoring and early-warning alerts',
     desc: 'Early-warning alerts and situational awareness across all active operations and travel.',
   },
   {
-    title: 'Immediate Emergency Intervention',
+    title: 'Immediate emergency intervention and coordination',
     desc: 'Coordinated response through our 24/7 command centre and global network of trusted assets.',
   },
   {
-    title: 'Post-Incident Debrief',
+    title: 'Post-incident debrief, psychological support and resilience building',
     desc: 'Psychological support, resilience building, and lessons-learned integration for future readiness.',
   },
 ]
@@ -55,7 +55,7 @@ export default function EmergencyAssistance() {
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[150px]" />
         </div>
         <div className="relative z-10 max-w-4xl">
-          <span data-reveal className="label-text">Service 04 — Emergency Assistance</span>
+          <span data-reveal className="label-text">Emergency Assistance & Duty of Care</span>
           <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Emergency Assistance &<br />
             <span className="text-primary">Duty of Care</span>

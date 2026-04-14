@@ -19,19 +19,19 @@ const gains = [
 
 const approach = [
   {
-    title: 'Confidential Briefing',
+    title: 'Confidential briefing and precise intelligence requirements',
     desc: 'Precise intelligence requirements defined in a private, no-obligation discussion.',
   },
   {
-    title: 'Multi-Source Collection',
+    title: 'Multi-source collection across all disciplines',
     desc: 'Full spectrum disciplines — HUMINT, SIGINT, GEOINT, MASINT, OSINT, and TECHINT combined with cutting-edge technology.',
   },
   {
-    title: 'Expert Analysis & Risk Assessment',
+    title: 'Expert analysis and risk assessment',
     desc: 'Professional evaluation of collected intelligence against your strategic objectives.',
   },
   {
-    title: 'Actionable Strategic Recommendations',
+    title: 'Actionable strategic recommendations and ongoing support',
     desc: 'Clear guidance with ongoing support to turn intelligence into decisive action.',
   },
 ]
@@ -53,7 +53,7 @@ export default function Intelligence() {
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[150px]" />
         </div>
         <div className="relative z-10 max-w-4xl">
-          <span data-reveal className="label-text">Service 05 — Intelligence</span>
+          <span data-reveal className="label-text">Intelligence</span>
           <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Security Intelligence &<br />
             <span className="text-primary">Risk Consulting</span>
