@@ -146,7 +146,7 @@ export default function Investigations() {
             Every conversation begins with a private, no-obligation briefing. Your confidentiality is absolute.
           </p>
           <div className="flex justify-center">
-            <div style={{ width: 380, display: 'flex' }}>
+            <div style={{ width: '100%', maxWidth: 380, display: 'flex' }}>
               <MetalCTA
                 to="/contact"
                 label="Request a Private Consultation today"

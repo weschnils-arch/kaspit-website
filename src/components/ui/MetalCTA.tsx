@@ -22,8 +22,7 @@ export default function MetalCTA({
 }: MetalCTAProps) {
   const sizeStyle: React.CSSProperties = {}
   if (width !== undefined) {
-    sizeStyle.width = `${width}px`
-    sizeStyle.minWidth = `${width}px`
+    sizeStyle.width = `min(${width}px, 100%)`
     sizeStyle.maxWidth = `${width}px`
   }
   if (height !== undefined) {

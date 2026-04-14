@@ -178,7 +178,7 @@ export default function Training() {
             Every program is customised to your exact risk profile and delivered by elite instructors.
           </p>
           <div className="flex justify-center">
-            <div style={{ width: 440, display: 'flex' }}>
+            <div style={{ width: '100%', maxWidth: 440, display: 'flex' }}>
               <MetalCTA
                 to="/contact"
                 label="Request a Confidential Training Consultation"

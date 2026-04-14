@@ -181,7 +181,7 @@ export default function Intelligence() {
             Every engagement begins with a confidential briefing and fully lawful methodology.
           </p>
           <div className="flex justify-center">
-            <div style={{ width: 460, display: 'flex' }}>
+            <div style={{ width: '100%', maxWidth: 460, display: 'flex' }}>
               <MetalCTA
                 to="/contact"
                 label="Request a Confidential Intelligence Consultation"

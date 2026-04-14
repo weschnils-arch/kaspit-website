@@ -99,7 +99,7 @@ export default function LiquidMetalButton({
         style={{
           transform: isPressed ? 'scale(0.98)' : 'scale(1)',
           transition: 'transform 0.15s ease',
-          ...(width !== undefined ? { width: `${width}px`, minWidth: `${width}px`, maxWidth: `${width}px` } : {}),
+          ...(width !== undefined ? { width: `min(${width}px, 100%)`, maxWidth: `${width}px` } : {}),
           ...(height !== undefined ? { height: `${height}px`, minHeight: `${height}px`, maxHeight: `${height}px` } : {}),
         }}
         onClick={handleClick}

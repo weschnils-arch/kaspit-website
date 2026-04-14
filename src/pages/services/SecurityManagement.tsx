@@ -155,7 +155,7 @@ export default function SecurityManagement() {
             Start with a confidential assessment. We build security strategies that evolve with your organisation.
           </p>
           <div className="flex justify-center">
-            <div style={{ width: 380, display: 'flex' }}>
+            <div style={{ width: '100%', maxWidth: 380, display: 'flex' }}>
               <MetalCTA
                 to="/contact"
                 label="Start with a Confidential Assessment"
