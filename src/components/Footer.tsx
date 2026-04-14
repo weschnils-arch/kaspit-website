@@ -6,7 +6,7 @@ const footerLinks = [
   { label: 'Security Consulting & Audits', href: '/services/audits' },
   { label: 'The KASPIT Advantage', href: '/advantage' },
   { label: 'About Us', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Insights', href: '#' },
 ]
 
 const services = [
@@ -29,7 +29,7 @@ export default function Footer() {
               alt="KASPIT Security Solutions"
               className="h-9 w-auto mb-6"
             />
-            <p className="body-md max-w-xs">
+            <p className="text-xs leading-relaxed text-text-muted max-w-xs">
               KASPIT Security – Austria's Elite Intelligence-Led Security Atelier. Part of the international KASPIT Group.
             </p>
             <div className="mt-6 flex flex-col gap-2">
@@ -97,7 +97,7 @@ export default function Footer() {
           <div>
             <h4 className="label-text mb-6">Get in Touch</h4>
             <p className="body-md mb-6">
-              All inquiries are handled with the highest level of discretion.
+              All inquiries are handled with<br />the highest level of discretion.
             </p>
             <Link to="/contact" className="btn-outline text-xs">
               Start a Conversation
@@ -119,6 +119,12 @@ export default function Footer() {
             >
               Imprint
             </Link>
+            <a
+              href="#"
+              className="text-xs text-text-dim hover:text-primary transition-colors duration-300"
+            >
+              Insights
+            </a>
             <Link
               to="/terms"
               className="text-xs text-text-dim hover:text-primary transition-colors duration-300"
