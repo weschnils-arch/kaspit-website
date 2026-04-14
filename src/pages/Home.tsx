@@ -40,7 +40,7 @@ const services = [
   },
   {
     label: 'Training',
-    title: 'Elite Training & Capacity Building',
+    title: 'Training',
     desc: 'Hands-on programs that build real resilience in security, travel safety and medical response.',
     href: '/training',
     num: '05',
