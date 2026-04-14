@@ -163,7 +163,6 @@ export default function Home() {
                   height={52}
                 />
               </div>
-              <span className="block mt-3 text-[0.6875rem] text-text-dim tracking-wider uppercase">Free &middot; No obligation</span>
             </div>
           </div>
 
