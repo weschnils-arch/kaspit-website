@@ -1,88 +1,70 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
-import Lenis from 'lenis'
-import Navigation from './components/Navigation'
+import { useEffect, useState, useCallback } from 'react'
+import { ThemeProvider } from './context/ThemeContext'
+import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ParticleNetwork from './components/ParticleNetwork'
-import CustomCursor from './components/CustomCursor'
-import { ThemeProvider, useTheme } from './context/ThemeContext'
+import LoadingScreen from './components/LoadingScreen'
 import Home from './pages/Home'
 import About from './pages/About'
-import Advantage from './pages/Advantage'
 import Services from './pages/Services'
-import SecurityManagement from './pages/SecurityManagement'
-import Investigations from './pages/Investigations'
-import Intelligence from './pages/Intelligence'
-import Emergency from './pages/Emergency'
-import Audits from './pages/Audits'
+import Investigations from './pages/services/Investigations'
+import SecurityManagement from './pages/services/SecurityManagement'
+import SecurityAudits from './pages/services/SecurityAudits'
+import EmergencyAssistance from './pages/services/EmergencyAssistance'
+import Intelligence from './pages/services/Intelligence'
 import Training from './pages/Training'
-import Contact from './pages/Contact'
+import Advantage from './pages/Advantage'
+import ContactPage from './pages/Contact'
+import Terms from './pages/Terms'
+import Imprint from './pages/Imprint'
+import NotFound from './pages/NotFound'
+import './index.css'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // Lenis intercepts window.scrollTo, so reset through it when present
+    const lenis = (window as unknown as { __lenis?: { scrollTo: (t: number, o?: { immediate?: boolean }) => void } }).__lenis
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo(0, 0)
+    }
   }, [pathname])
   return null
 }
 
-function AccentToggle() {
-  const { accent, toggle } = useTheme()
-  return (
-    <button className="accent-toggle" onClick={toggle} aria-label="Toggle accent color">
-      <span className={`accent-toggle-dot ${accent}`} />
-      {accent === 'gold' ? 'Gold' : 'Silver'}
-    </button>
-  )
-}
-
-function AppInner() {
-  useEffect(() => {
-    const lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) })
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
-    return () => lenis.destroy()
-  }, [])
+export default function App() {
+  const [loaded, setLoaded] = useState(false)
+  const handleLoadComplete = useCallback(() => setLoaded(true), [])
 
   return (
-    <>
+    <ThemeProvider>
+      {!loaded && <LoadingScreen onComplete={handleLoadComplete} />}
       <ParticleNetwork />
-      <CustomCursor />
-      <Navigation />
+      <Navbar />
       <ScrollToTop />
-      <main style={{ position: 'relative', zIndex: 1 }}>
+      <main className="relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/advantage" element={<Advantage />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/services/security-management" element={<SecurityManagement />} />
           <Route path="/services/investigations" element={<Investigations />} />
+          <Route path="/services/security-management" element={<SecurityManagement />} />
+          <Route path="/services/audits" element={<SecurityAudits />} />
+          <Route path="/services/emergency" element={<EmergencyAssistance />} />
           <Route path="/services/intelligence" element={<Intelligence />} />
-          <Route path="/services/emergency" element={<Emergency />} />
-          <Route path="/services/audits" element={<Audits />} />
-          <Route path="/security-management" element={<SecurityManagement />} />
-          <Route path="/investigations" element={<Investigations />} />
-          <Route path="/intelligence" element={<Intelligence />} />
-          <Route path="/emergency" element={<Emergency />} />
-          <Route path="/security-audits" element={<Audits />} />
+          <Route path="/services/*" element={<Services />} />
           <Route path="/training" element={<Training />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/advantage" element={<Advantage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/imprint" element={<Imprint />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
-      <AccentToggle />
-    </>
-  )
-}
-
-export default function App() {
-  return (
-    <ThemeProvider>
-      <AppInner />
     </ThemeProvider>
   )
 }

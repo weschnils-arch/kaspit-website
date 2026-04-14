@@ -5,46 +5,51 @@ interface Particle {
   y: number
   vx: number
   vy: number
-  size: number
+  radius: number
   opacity: number
 }
 
 export default function ParticleNetwork() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const mouseRef = useRef({ x: -1000, y: -1000 })
+  const particlesRef = useRef<Particle[]>([])
+  const animRef = useRef<number>(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+
     const ctx = canvas.getContext('2d')
     if (!ctx) return
-
-    let animId: number
-    let particles: Particle[] = []
-    const PARTICLE_COUNT = 80
-    const CONNECT_DIST = 150
-    const mouse = { x: -9999, y: -9999 }
 
     const resize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
     }
+    resize()
+    window.addEventListener('resize', resize)
 
-    const init = () => {
-      resize()
-      particles = Array.from({ length: PARTICLE_COUNT }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.4 + 0.2,
-      }))
+    const count = Math.min(80, Math.floor(window.innerWidth / 18))
+    particlesRef.current = Array.from({ length: count }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.12,
+      vy: (Math.random() - 0.5) * 0.12,
+      radius: Math.random() * 1.5 + 0.5,
+      opacity: Math.random() * 0.5 + 0.2,
+    }))
+
+    const handleMouse = (e: MouseEvent) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY }
     }
+    window.addEventListener('mousemove', handleMouse)
 
-    const draw = () => {
+    const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      const particles = particlesRef.current
+      const mouse = mouseRef.current
+      const connectionDist = 150
 
-      // Update and draw particles
       for (const p of particles) {
         p.x += p.vx
         p.y += p.vy
@@ -56,72 +61,58 @@ export default function ParticleNetwork() {
         const dx = p.x - mouse.x
         const dy = p.y - mouse.y
         const dist = Math.sqrt(dx * dx + dy * dy)
-        if (dist < 100) {
-          p.x += dx * 0.02
-          p.y += dy * 0.02
+        if (dist < 120) {
+          p.vx += dx * 0.00015
+          p.vy += dy * 0.00015
         }
 
+        // Clamp velocity to keep movement gentle
+        const maxV = 0.15
+        p.vx = Math.max(-maxV, Math.min(maxV, p.vx))
+        p.vy = Math.max(-maxV, Math.min(maxV, p.vy))
+
         ctx.beginPath()
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(77, 110, 255, ${p.opacity})`
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(192, 192, 192, ${p.opacity})`
         ctx.fill()
       }
 
       // Draw connections
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
-          const a = particles[i]
-          const b = particles[j]
-          const dx = a.x - b.x
-          const dy = a.y - b.y
+          const dx = particles[i].x - particles[j].x
+          const dy = particles[i].y - particles[j].y
           const dist = Math.sqrt(dx * dx + dy * dy)
 
-          if (dist < CONNECT_DIST) {
-            const opacity = (1 - dist / CONNECT_DIST) * 0.15
+          if (dist < connectionDist) {
+            const alpha = (1 - dist / connectionDist) * 0.15
             ctx.beginPath()
-            ctx.moveTo(a.x, a.y)
-            ctx.lineTo(b.x, b.y)
-            ctx.strokeStyle = `rgba(59, 88, 184, ${opacity})`
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(particles[j].x, particles[j].y)
+            ctx.strokeStyle = `rgba(192, 192, 192, ${alpha})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
         }
       }
 
-      animId = requestAnimationFrame(draw)
+      animRef.current = requestAnimationFrame(animate)
     }
 
-    const onMouseMove = (e: MouseEvent) => {
-      mouse.x = e.clientX
-      mouse.y = e.clientY
-    }
-
-    init()
-    draw()
-
-    window.addEventListener('resize', init)
-    window.addEventListener('mousemove', onMouseMove)
+    animate()
 
     return () => {
-      cancelAnimationFrame(animId)
-      window.removeEventListener('resize', init)
-      window.removeEventListener('mousemove', onMouseMove)
+      cancelAnimationFrame(animRef.current)
+      window.removeEventListener('resize', resize)
+      window.removeEventListener('mousemove', handleMouse)
     }
   }, [])
 
   return (
     <canvas
       ref={canvasRef}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
-        zIndex: 0,
-        opacity: 0.8,
-      }}
+      className="fixed inset-0 pointer-events-none z-0"
+      style={{ opacity: 0.8 }}
     />
   )
 }

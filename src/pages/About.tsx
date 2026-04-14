@@ -1,125 +1,140 @@
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import MetalCTA from '../components/MetalCTA'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
+import MetalCTA from '../components/ui/MetalCTA'
 
 export default function About() {
-  const heroRef = useRef<HTMLElement>(null)
-  const founderRef = useRef<HTMLElement>(null)
-  const storyRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    if (heroRef.current) {
-      const els = heroRef.current.querySelectorAll('.reveal')
-      gsap.fromTo(els, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.2 })
-    }
-    if (founderRef.current) {
-      const els = founderRef.current.querySelectorAll('.reveal')
-      gsap.fromTo(els, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: 'power3.out',
-        scrollTrigger: { trigger: founderRef.current, start: 'top 75%' } })
-    }
-    if (storyRef.current) {
-      const els = storyRef.current.querySelectorAll('.reveal')
-      gsap.fromTo(els, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: 'power3.out',
-        scrollTrigger: { trigger: storyRef.current, start: 'top 75%' } })
-    }
-  }, [])
+  usePageTitle('About · Maxim Gutman & KASPIT')
+  const heroRef = useScrollReveal<HTMLDivElement>()
+  const founderRef = useScrollReveal<HTMLDivElement>()
+  const storyRef = useScrollReveal<HTMLDivElement>()
+  const ctaRef = useScrollReveal<HTMLDivElement>()
 
   return (
     <>
       {/* Hero */}
-      <section ref={heroRef} style={{ padding: 'clamp(8rem, 18vh, 12rem) 0 clamp(4rem, 8vh, 6rem)' }}>
-        <div className="container">
-          <div className="reveal section-label">About KASPIT Security</div>
-          <h1 className="reveal heading-xl" style={{ maxWidth: '800px', marginBottom: '1.5rem' }}>
-            Part of the international KASPIT Group
+      <section ref={heroRef} className="section-padding pt-36 pb-20 lg:pt-44 lg:pb-28 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[150px]" />
+        </div>
+        <div className="relative z-10 max-w-4xl">
+          <span data-reveal className="label-text">About Us</span>
+          <h1 data-reveal className="heading-xl mt-4 mb-6">
+            About <span className="text-primary">KASPIT</span> Security
           </h1>
-          <p className="reveal" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)', maxWidth: '600px', lineHeight: 1.7 }}>
-            Founded on real operational excellence.
+          <p data-reveal className="body-lg max-w-2xl">
+            Part of the international KASPIT Group -- Founded on real operational excellence.
           </p>
         </div>
       </section>
 
+      <div className="section-padding"><div className="divider" /></div>
+
       {/* Founder */}
-      <section ref={founderRef} style={{ padding: 'clamp(4rem, 8vw, 6rem) 2rem' }}>
-        <div className="container">
-          <div className="founder-grid" style={{
-            display: 'grid', gridTemplateColumns: '400px 1fr', gap: 'clamp(2rem, 5vw, 5rem)', alignItems: 'start',
-          }}>
-            <div className="reveal" style={{ position: 'relative', overflow: 'hidden' }}>
+      <section ref={founderRef} className="section-padding py-24 lg:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          <div className="lg:col-span-4" data-reveal>
+            <div className="aspect-[3/4] max-w-[340px] rounded-sm overflow-hidden relative">
               <img
-                src="/images/maxim-profile.webp"
+                src={`${import.meta.env.BASE_URL}images/maxim-gutman.webp`}
                 alt="Maxim Gutman"
-                style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', filter: 'grayscale(30%) contrast(1.1)' }}
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/40 via-transparent to-transparent" />
             </div>
-            <div>
-              <div className="reveal section-label">Founder & Managing Director</div>
-              <h2 className="reveal heading-lg" style={{ marginBottom: '1.5rem' }}>Maxim Gutman</h2>
-              <p className="reveal" style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: '1rem' }}>
-                Maxim Gutman is the founder and managing director of KASPIT Security, the premium boutique arm of the international KASPIT Group. With over 20 years of experience in elite security, intelligence, and risk management, he is a combat veteran officer of the Israel Defense Forces, where he earned the Operational Service Badge and the Second Lebanon War Ribbon.
+          </div>
+
+          <div className="lg:col-span-8" data-reveal>
+            <span className="label-text">Founder & Managing Director</span>
+            <h2 className="heading-lg mt-4 mb-8">Maxim Gutman</h2>
+            <div className="space-y-6">
+              <p className="body-lg">
+                Maxim Gutman is the founder and managing director of KASPIT Security, the premium
+                boutique arm of the international KASPIT Group. With over 20 years of experience
+                in elite security, intelligence, and risk management, he is a combat veteran
+                officer of the Israel Defense Forces, where he earned the Operational Service
+                Badge and the Second Lebanon War Ribbon.
               </p>
-              <p className="reveal" style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: '1rem' }}>
-                He has also served as an anti-terror expert for international organisations such as the OSCE, as well as in the corporate world, and has been actively involved in worldwide operations of emergency assistance.
+              <p className="body-lg">
+                He has also served as an anti-terror expert for international organisations such
+                as the OSCE, as well as in the corporate world, and has been actively involved
+                in worldwide operations of emergency assistance.
               </p>
-              <p className="reveal" style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-                He combines this exceptional operational background with an MBA from the University of Minnesota and full Austrian certifications as Professional Detective and Safety Expert. At KASPIT Security he delivers bespoke intelligence-led security solutions -- including strategic consulting and independent audits -- for executives, corporations and high-net-worth individuals who expect far more than standard services.
+              <p className="body-lg">
+                He combines this exceptional operational background with an MBA from the
+                University of Minnesota and full Austrian certifications as Professional
+                Detective and Safety Expert. At KASPIT Security he delivers bespoke
+                intelligence-led security solutions -- including strategic consulting and
+                independent audits -- for executives, corporations and high-net-worth
+                individuals who expect far more than standard services.
               </p>
-              <div className="reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2rem' }}>
-                {['IDF Combat Veteran', 'MBA (Univ. of Minnesota)', 'Certified Professional Detective', 'OSCE Anti-Terror Expert'].map(c => (
-                  <span key={c} style={{
-                    padding: '0.5rem 1rem', fontSize: '0.75rem', letterSpacing: '0.05em',
-                    border: '1px solid var(--border)', color: 'var(--text-muted)',
-                  }}>{c}</span>
-                ))}
-              </div>
+            </div>
+
+            {/* Credentials */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 pt-12 border-t border-white/[0.06]">
+              {[
+                { label: 'Military', value: 'IDF Combat Veteran Officer' },
+                { label: 'Education', value: 'MBA, University of Minnesota' },
+                { label: 'Certifications', value: 'Professional Detective (AT)' },
+                { label: 'International', value: 'OSCE Anti-Terror Expert' },
+              ].map((cred) => (
+                <div key={cred.label}>
+                  <span className="label-text text-[0.625rem]">{cred.label}</span>
+                  <p className="text-sm text-text mt-1">{cred.value}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Company Story */}
-      <section ref={storyRef} style={{ padding: 'clamp(4rem, 8vw, 6rem) 2rem', borderTop: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <div className="reveal section-label">Company Story</div>
-          <h2 className="reveal heading-lg" style={{ marginBottom: '2rem' }}>
-            Discretion, excellence and results are our operating principles
-          </h2>
-          <p className="reveal" style={{ fontSize: '1.0625rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-            KASPIT Security was founded in Vienna as the elite boutique division of the international KASPIT Group. With dedicated branches in Austria and Germany (Europe) and Israel (Middle East), we combine the precision of elite military and intelligence experience with Austrian professionalism and true global reach.
+      <section ref={storyRef} className="section-padding py-24 lg:py-36 bg-dark-900">
+        <div className="max-w-3xl mx-auto text-center" data-reveal>
+          <span className="label-text">Our Story</span>
+          <h2 className="heading-lg mt-4 mb-8">Built on <span className="text-primary">Principles</span></h2>
+          <p className="body-lg mb-6">
+            KASPIT Security was founded in Vienna as the elite boutique division of the
+            international KASPIT Group. With dedicated branches in Austria and Germany (Europe)
+            and Israel (Middle East), we combine the precision of elite military and intelligence
+            experience with Austrian professionalism and true global reach.
           </p>
-          <p className="reveal" style={{ fontSize: '1.0625rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-            Every client receives personal attention and solutions designed exclusively for their needs. Discretion, excellence and results are not marketing words -- they are our operating principles.
+          <p className="body-lg mb-12">
+            Every client receives personal attention and solutions designed exclusively for
+            their needs. Discretion, excellence and results are not marketing words -- they
+            are our operating principles.
           </p>
-          <div className="reveal" style={{
-            padding: '2rem', background: 'var(--surface)', border: '1px solid var(--border)', marginTop: '2rem',
-          }}>
-            <p style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--text)', marginBottom: '0.5rem' }}>Our Promise</p>
-            <p style={{ fontSize: '1rem', lineHeight: 1.7, fontStyle: 'italic' }}>
-              Absolute discretion. Uncompromising quality. Strategic consulting and independent audits that deliver measurable excellence.
+
+          <div className="glass-card p-10 lg:p-14 rounded-sm">
+            <h3 className="heading-md mb-4 text-primary">Our Promise</h3>
+            <p className="body-lg">
+              Absolute discretion. Uncompromising quality. Strategic consulting and independent
+              audits that deliver measurable excellence.
             </p>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 2rem' }}>
-        <div style={{
-          maxWidth: '700px', margin: '0 auto', textAlign: 'center',
-          padding: 'clamp(3rem, 5vw, 4rem)', background: 'var(--surface)', border: '1px solid var(--border)',
-        }}>
-          <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>Meet Maxim personally</h2>
-          <MetalCTA to="/contact" label="Book a Private Consultation" />
+      <section ref={ctaRef} className="section-padding py-24 lg:py-36 text-center">
+        <div data-reveal className="max-w-2xl mx-auto">
+          <h2 className="heading-lg mb-6">Meet <span className="text-primary">Maxim</span> Personally</h2>
+          <p className="body-lg mb-10">
+            Discover how KASPIT Security can protect what matters most to you.
+          </p>
+          <MetalCTA
+            to="/contact"
+            label="Book a Private Consultation"
+            width={280}
+            height={52}
+            icon={
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            }
+          />
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .founder-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </>
   )
 }

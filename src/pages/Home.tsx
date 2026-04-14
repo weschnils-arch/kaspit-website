@@ -2,292 +2,332 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import MetalCTA from '../components/MetalCTA'
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
+import MetalCTA from '../components/ui/MetalCTA'
+import HeroNetwork from '../components/HeroNetwork'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const services = [
   {
-    num: '01',
+    label: 'Investigations',
     title: 'Intelligence-Driven Investigations',
     desc: 'Uncovering facts with precision and absolute discretion.',
-    href: '/investigations',
+    href: '/services/investigations',
+    num: '01',
   },
   {
-    num: '02',
+    label: 'Security',
     title: 'Strategic Security Management, Consulting & Audits',
     desc: '360° concepts, expert consulting, and independent security audits tailored to complex risks — never standard guarding.',
-    href: '/security-management',
+    href: '/services/security-management',
+    num: '02',
   },
   {
-    num: '03',
+    label: 'Emergency',
     title: 'Emergency Assistance & Duty of Care',
     desc: 'Rapid worldwide response combined with full corporate Duty of Care.',
-    href: '/emergency',
+    href: '/services/emergency',
+    num: '03',
   },
   {
-    num: '04',
+    label: 'Intelligence',
     title: 'Security Intelligence & Risk Consulting',
     desc: 'Uncover the facts — no matter where they\'re hidden. Tactical approach. Global reach.',
-    href: '/intelligence',
+    href: '/services/intelligence',
+    num: '04',
   },
   {
-    num: '05',
+    label: 'Training',
     title: 'Elite Training & Capacity Building',
     desc: 'Hands-on programs that build real resilience in security, travel safety and medical response.',
     href: '/training',
+    num: '05',
   },
 ]
 
 const stats = [
-  { value: '20+', label: 'Years of Elite Experience' },
-  { value: '3', label: 'International Branches' },
-  { value: '24/7', label: 'Global Response Ready' },
-  { value: '100%', label: 'Confidential Operations' },
+  { value: '20+', label: 'Years Experience' },
+  { value: '3', label: 'Global Branches' },
+  { value: '24/7', label: 'Response Ready' },
+  { value: '100%', label: 'Discretion' },
 ]
 
 export default function Home() {
-  const heroRef = useRef<HTMLElement>(null)
-  const servicesRef = useRef<HTMLElement>(null)
-  const aboutRef = useRef<HTMLElement>(null)
-  const statsRef = useRef<HTMLElement>(null)
+  usePageTitle('Intelligence-Led Security Management')
+  const heroRef = useRef<HTMLDivElement>(null)
+  const servicesRef = useScrollReveal<HTMLDivElement>()
+  const aboutRef = useScrollReveal<HTMLDivElement>()
+  const statsRef = useScrollReveal<HTMLDivElement>()
+  const ctaRef = useScrollReveal<HTMLDivElement>()
 
   useEffect(() => {
-    if (heroRef.current) {
-      const els = heroRef.current.querySelectorAll('.hero-reveal')
-      gsap.fromTo(els,
-        { opacity: 0, y: 60 },
-        { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }
-      )
-    }
+    const el = heroRef.current
+    if (!el) return
 
-    if (servicesRef.current) {
-      const cards = servicesRef.current.querySelectorAll('.service-card')
-      gsap.fromTo(cards,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-          scrollTrigger: { trigger: servicesRef.current, start: 'top 75%' } }
-      )
-    }
+    const tl = gsap.timeline({ delay: 0.3 })
 
-    if (aboutRef.current) {
-      const els = aboutRef.current.querySelectorAll('.about-reveal')
-      gsap.fromTo(els,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: 'power3.out',
-          scrollTrigger: { trigger: aboutRef.current, start: 'top 75%' } }
+    tl.fromTo(
+      el.querySelector('.hero-label'),
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+    )
+      .fromTo(
+        el.querySelectorAll('.hero-title span'),
+        { opacity: 0, y: 80, skewY: 3 },
+        { opacity: 1, y: 0, skewY: 0, duration: 1.2, stagger: 0.08, ease: 'power3.out' },
+        '-=0.4'
       )
-    }
-
-    if (statsRef.current) {
-      const items = statsRef.current.querySelectorAll('.stat-item')
-      gsap.fromTo(items,
+      .fromTo(
+        el.querySelector('.hero-sub'),
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-          scrollTrigger: { trigger: statsRef.current, start: 'top 80%' } }
+        { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+        '-=0.6'
       )
-    }
+      .fromTo(
+        el.querySelector('.hero-cta'),
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+        '-=0.4'
+      )
+      .fromTo(
+        el.querySelector('.hero-line'),
+        { scaleX: 0 },
+        { scaleX: 1, duration: 1.5, ease: 'power3.inOut' },
+        '-=0.8'
+      )
+
+    // Parallax on scroll
+    gsap.fromTo(
+      el.querySelector('.hero-bg-gradient'),
+      { y: 0 },
+      {
+        y: -100,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      }
+    )
   }, [])
 
   return (
     <>
       {/* Hero */}
-      <section ref={heroRef} style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        <div style={{
-          position: 'absolute', top: '-20%', right: '-10%', width: '600px', height: '600px',
-          background: 'radial-gradient(circle, rgba(59, 88, 184, 0.12) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }} />
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background */}
+        <div className="hero-bg-gradient absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/90 to-dark" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[150px]" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/[0.02] rounded-full blur-[120px]" />
+          {/* Grid pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `linear-gradient(rgba(201,169,110,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.3) 1px, transparent 1px)`,
+              backgroundSize: '80px 80px',
+            }}
+          />
+        </div>
 
-        <div className="container" style={{ padding: '0 2rem' }}>
-          <div style={{ maxWidth: '800px' }}>
-            <div className="hero-reveal section-label">KASPIT Security GmbH</div>
-            <h1 className="hero-reveal" style={{
-              fontSize: 'clamp(2.75rem, 7vw, 6rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.03em',
-              lineHeight: 1.1,
-              marginBottom: '1.5rem',
-            }}>
-              <span style={{ color: 'var(--text)' }}>KASPIT Security –</span><br />
-              <span className="text-gradient">Austria's Premier Boutique for Intelligence-Led Security Management</span>
+        {/* Constellation network — right side, mouse-reactive */}
+        <HeroNetwork />
+
+        <div className="section-padding relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-32 w-full">
+          <div className="max-w-5xl">
+            <div className="hero-label label-text mb-8" style={{ opacity: 0 }}>
+              KASPIT Security
+            </div>
+
+            <h1 className="hero-title heading-xl mb-8" style={{ overflow: 'visible', paddingBottom: '0.15em' }}>
+              <span className="inline-block" style={{ opacity: 0 }}>Austria's Premier Boutique for</span>
+              <br />
+              <span className="inline-block text-primary" style={{ opacity: 0 }}>Intelligence-Led</span>
+              <span className="inline-block" style={{ opacity: 0 }}>&nbsp;Security Management</span>
             </h1>
-            <p className="hero-reveal" style={{
-              fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
-              color: 'var(--text-muted)',
-              maxWidth: '560px',
-              lineHeight: 1.7,
-              marginBottom: '2.5rem',
-            }}>
+
+            <p className="hero-sub body-lg max-w-2xl mb-12" style={{ opacity: 0 }}>
               Protecting what matters most with strategic precision and absolute discretion.
             </p>
-            <div className="hero-reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-              <MetalCTA to="/contact" label="Request a Confidential Risk Assessment" />
-              <MetalCTA to="/contact" label="Book a Private Consultation with Maxim" secondary />
+
+            <div className="hero-cta flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:items-stretch" style={{ opacity: 0 }}>
+              <MetalCTA
+                to="/contact"
+                label="Request a Confidential Risk Assessment"
+                width={320}
+                height={52}
+                icon={
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                }
+              />
+              <MetalCTA
+                to="/contact"
+                label="Book a Private Consultation with Maxim"
+                variant="outline"
+                className="!py-[14px]"
+              />
             </div>
           </div>
-        </div>
 
-        <div className="hero-reveal" style={{
-          position: 'absolute', bottom: '3rem', left: '50%', transform: 'translateX(-50%)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem',
-        }}>
-          <span style={{ fontSize: '0.625rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-dim)' }}>Scroll</span>
-          <div style={{
-            width: '1px', height: '40px',
-            background: 'linear-gradient(to bottom, var(--blue), transparent)',
-            animation: 'pulse 2s infinite',
-          }} />
+          <div className="hero-line mt-20 h-px bg-gradient-to-r from-primary/30 via-primary/10 to-transparent origin-left" style={{ transform: 'scaleX(0)' }} />
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section ref={servicesRef} style={{ padding: 'clamp(4rem, 10vw, 8rem) 2rem' }}>
-        <div className="container">
-          <div className="section-label">Our Strategic Services</div>
-          <h2 className="heading-lg" style={{ maxWidth: '600px', marginBottom: '4rem' }}>
-            Comprehensive security
-            <span style={{ color: 'var(--text-muted)' }}> beyond standard measures</span>
-          </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 340px), 1fr))',
-            gap: '1px',
-            background: 'var(--border)',
-          }}>
-            {services.map((s) => (
-              <Link
-                key={s.href}
-                to={s.href}
-                className="service-card"
-                style={{
-                  padding: '2.5rem',
-                  background: 'var(--bg)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem',
-                  transition: 'background 0.4s ease',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.background = 'var(--surface)')}
-                onMouseLeave={e => (e.currentTarget.style.background = 'var(--bg)')}
-              >
-                <span style={{
-                  fontSize: '0.75rem', fontWeight: 700, color: 'var(--blue-light)',
-                  letterSpacing: '0.1em', fontFamily: 'monospace',
-                }}>{s.num}</span>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, letterSpacing: '-0.01em', lineHeight: 1.3 }}>{s.title}</h3>
-                <p style={{ fontSize: '0.875rem', lineHeight: 1.7 }}>{s.desc}</p>
-                <span style={{ fontSize: '0.75rem', color: 'var(--blue-light)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 'auto', paddingTop: '0.5rem' }}>
-                  Learn more &rarr;
-                </span>
-              </Link>
-            ))}
-          </div>
+      {/* Stats Bar */}
+      <section ref={statsRef} className="section-padding py-16 lg:py-20 bg-dark-900">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {stats.map((stat) => (
+            <div key={stat.label} data-reveal className="text-center lg:text-left">
+              <div className="text-3xl lg:text-4xl font-light text-primary font-display mb-2">
+                {stat.value}
+              </div>
+              <div className="text-sm text-text-muted tracking-wide">
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* About Preview */}
-      <section ref={aboutRef} style={{ padding: 'clamp(4rem, 10vw, 8rem) 2rem' }}>
-        <div className="container">
-          <div className="about-grid" style={{
-            display: 'grid', gridTemplateColumns: '1fr 1fr',
-            gap: 'clamp(2rem, 5vw, 5rem)', alignItems: 'center',
-          }}>
-            <div>
-              <div className="about-reveal section-label">About KASPIT</div>
-              <h2 className="about-reveal heading-lg" style={{ marginBottom: '1.5rem' }}>
-                Founded on real operational excellence
-              </h2>
-              <p className="about-reveal" style={{ marginBottom: '1rem', fontSize: '1rem', lineHeight: 1.8 }}>
-                KASPIT Security is the premium boutique arm of the international KASPIT Group. With branches across Europe (Austria and Germany) and the Middle East (Israel), we deliver intelligence-led, fully bespoke solutions that protect your most valuable assets — your people, your operations and your peace of mind.
-              </p>
-              <p className="about-reveal" style={{ marginBottom: '2rem', fontSize: '1rem', lineHeight: 1.8 }}>
-                Every engagement is tailored to your exact risk environment. This includes strategic security consulting and independent audits that identify vulnerabilities, strengthen resilience, and ensure compliance at the highest level. Whether you face complex investigations, need sophisticated security architecture with expert consulting and audits, global emergencies, or elite training, KASPIT Security is the trusted partner that discerning executives and corporations choose to stay ahead.
-              </p>
-              <MetalCTA to="/about" label="About Us" secondary className="about-reveal" />
-            </div>
-            <div className="about-reveal" style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
+      {/* Services */}
+      <section ref={servicesRef} className="section-padding py-24 lg:py-36">
+        <div data-reveal className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 lg:mb-24">
+          <div>
+            <span className="label-text">Our Strategic Services</span>
+            <h2 className="heading-lg mt-4">
+              Comprehensive<br />
+              <span className="text-primary">Security Solutions</span>
+            </h2>
+          </div>
+          <p className="body-lg max-w-md">
+            From investigations to emergency response, every engagement is tailored to your exact risk environment.
+          </p>
+        </div>
+
+        <div className="flex flex-col">
+          {services.map((service) => (
+            <Link
+              key={service.num}
+              to={service.href}
+              data-reveal
+              className="group border-t border-white/[0.06] py-8 lg:py-10 flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8 transition-colors duration-500 hover:border-primary/20"
+            >
+              <span className="text-xs text-text-dim font-mono w-12 shrink-0">{service.num}</span>
+              <h3 className="heading-sm flex-1 group-hover:text-primary transition-colors duration-500">
+                {service.title}
+              </h3>
+              <p className="body-md max-w-sm flex-1">{service.desc}</p>
+              <div className="w-10 h-10 rounded-full border border-white/[0.08] flex items-center justify-center shrink-0 group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-500">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-text-muted group-hover:text-primary transition-colors duration-500 group-hover:translate-x-0.5 transition-transform">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </Link>
+          ))}
+          <div className="border-t border-white/[0.06]" />
+        </div>
+      </section>
+
+      {/* About Teaser */}
+      <section ref={aboutRef} className="section-padding py-24 lg:py-36 bg-dark-900">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div data-reveal>
+            <span className="label-text">About KASPIT</span>
+            <h2 className="heading-lg mt-4 mb-8">
+              Founded on<br />
+              <span className="text-primary">Operational Excellence</span>
+            </h2>
+            <p className="body-lg mb-6">
+              KASPIT Security is the premium boutique arm of the international KASPIT Group.
+              With branches across Europe (Austria and Germany) and the Middle East (Israel),
+              we deliver intelligence-led, fully bespoke solutions that protect your most
+              valuable assets — your people, your operations and your peace of mind.
+            </p>
+            <p className="body-lg mb-10">
+              Every engagement is tailored to your exact risk environment. This includes
+              strategic security consulting and independent audits that identify vulnerabilities,
+              strengthen resilience, and ensure compliance at the highest level. Whether you
+              face complex investigations, need sophisticated security architecture with expert
+              consulting and audits, global emergencies, or elite training, KASPIT Security is
+              the trusted partner that discerning executives and corporations choose to stay ahead.
+            </p>
+            <MetalCTA
+              to="/about"
+              label="Learn More"
+              variant="outline"
+              icon={
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              }
+            />
+          </div>
+
+          <div data-reveal className="relative max-w-[420px] lg:ml-auto">
+            <div className="aspect-[3/4] rounded-sm overflow-hidden relative">
               <img
-                src="/images/maxim-profile.webp"
+                src={`${import.meta.env.BASE_URL}images/maxim-gutman.webp`}
                 alt="Maxim Gutman - Founder & Managing Director"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(30%) contrast(1.1)' }}
+                className="w-full h-full object-cover object-top"
                 loading="lazy"
               />
-              <div style={{
-                position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem',
-                background: 'linear-gradient(to top, rgba(5,7,15,0.9), transparent)',
-              }}>
-                <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text)' }}>Maxim Gutman</p>
-                <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Founder & Managing Director</p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
             </div>
+            <div className="absolute bottom-6 left-6 right-6">
+              <h3 className="text-lg font-medium mb-1">Maxim Gutman</h3>
+              <p className="text-sm text-primary">Founder & Managing Director</p>
+            </div>
+            {/* Decorative */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 border border-primary/10" />
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section ref={statsRef} style={{ padding: 'clamp(3rem, 6vw, 5rem) 2rem', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-        <div className="container">
-          <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
-            {stats.map((s) => (
-              <div key={s.label} className="stat-item" style={{ textAlign: 'center' }}>
-                <div style={{
-                  fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700,
-                  letterSpacing: '-0.03em', color: 'var(--blue-light)', lineHeight: 1, marginBottom: '0.5rem',
-                }}>{s.value}</div>
-                <div style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-dim)' }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
+      {/* CTA */}
+      <section ref={ctaRef} className="section-padding py-24 lg:py-36 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.03] rounded-full blur-[200px]" />
         </div>
-      </section>
 
-      {/* Credentials */}
-      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 2rem' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-dim)', marginBottom: '2rem' }}>
-            Credentials & Affiliations
+        <div className="relative z-10 text-center max-w-3xl mx-auto" data-reveal>
+          <span className="label-text">Take the First Step</span>
+          <h2 className="heading-lg mt-4 mb-6">
+            Ready to Secure<br />
+            <span className="text-primary">What Matters Most?</span>
+          </h2>
+          <p className="body-lg mb-12 max-w-xl mx-auto">
+            Every conversation begins with discretion. Request a confidential risk assessment
+            or book a private consultation with Maxim.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 'clamp(2rem, 5vw, 4rem)', flexWrap: 'wrap', opacity: 0.5 }}>
-            <img src="/images/berufsdetektiv.webp" alt="Berufsdetektiv Wien" style={{ height: '48px', width: 'auto', filter: 'grayscale(1) brightness(2)' }} loading="lazy" />
-            <img src="/images/miliz-guetesiegel.webp" alt="Miliz Guetesiegel" style={{ height: '48px', width: 'auto', filter: 'grayscale(1) brightness(2)' }} loading="lazy" />
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-4 sm:items-stretch">
+            <MetalCTA
+              to="/contact"
+              label="Request a Confidential Risk Assessment"
+              width={320}
+              height={52}
+              icon={
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              }
+            />
+            <MetalCTA
+              to="/contact"
+              label="Book a Private Consultation with Maxim"
+              variant="outline"
+              className="!py-[14px]"
+            />
           </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section style={{ padding: 'clamp(4rem, 10vw, 8rem) 2rem' }}>
-        <div style={{
-          maxWidth: '900px', margin: '0 auto', textAlign: 'center',
-          padding: 'clamp(3rem, 6vw, 5rem)', background: 'var(--surface)', border: '1px solid var(--border)',
-        }}>
-          <h2 className="heading-md" style={{ marginBottom: '1rem' }}>Ready to secure what matters most?</h2>
-          <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
-            All inquiries are handled with the highest level of discretion and personal attention.
+          <p className="mt-6 text-xs text-text-dim tracking-wider uppercase">
+            Free &middot; No obligation &middot; Absolute confidentiality
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
-            <MetalCTA to="/contact" label="Request a Confidential Risk Assessment (free & no obligation)" />
-            <MetalCTA to="/contact" label="Book a Private Consultation with Maxim" secondary />
-          </div>
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .about-grid { grid-template-columns: 1fr !important; }
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 1; }
-        }
-      `}</style>
     </>
   )
 }

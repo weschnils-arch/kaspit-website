@@ -1,148 +1,118 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import MetalCTA from './MetalCTA'
+import clsx from 'clsx'
 
 const navLinks = [
-  { label: 'Services', href: '/security-management' },
-  { label: 'Investigations', href: '/investigations' },
-  { label: 'Intelligence', href: '/intelligence' },
-  { label: 'Training', href: '/training' },
-  { label: 'The Kaspit Edge', href: '/advantage' },
-  { label: 'About', href: '/about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Advantage', href: '#advantage' },
+  { label: 'About', href: '#about' },
+  { label: 'Training', href: '#training' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const location = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [location.pathname])
-
   return (
-    <>
-      <nav
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          transition: 'all 0.4s ease',
-          background: scrolled ? 'rgba(5, 7, 15, 0.92)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(75, 110, 200, 0.12)' : '1px solid transparent',
-        }}
-      >
-        <div className="container" style={{ display: 'flex', alignItems: 'center', height: '80px', justifyContent: 'space-between' }}>
-          {/* Logo */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <div style={{
-              width: '36px',
-              height: '36px',
-              background: 'var(--blue)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '0.75rem',
-              fontWeight: '800',
-              letterSpacing: '0.05em',
-              color: 'white',
-            }}>K</div>
-            <div>
-              <div style={{ fontSize: '0.9375rem', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text)', lineHeight: 1.1 }}>KASPIT</div>
-              <div style={{ fontSize: '0.625rem', fontWeight: '500', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-muted)', lineHeight: 1 }}>Security GmbH</div>
-            </div>
-          </Link>
-
-          {/* Desktop links */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }} className="desktop-nav">
-            {navLinks.map(link => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className="nav-link"
-                style={{ color: location.pathname === link.href ? 'var(--text)' : undefined }}
-              >
-                {link.label}
-              </Link>
-            ))}
+    <header
+      className={clsx(
+        'fixed top-0 left-0 w-full z-50 transition-all duration-500',
+        scrolled
+          ? 'bg-dark/80 backdrop-blur-xl border-b border-white/5'
+          : 'bg-transparent'
+      )}
+    >
+      <nav className="section-padding flex items-center justify-between h-20 md:h-24">
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-3 group">
+          <div className="relative">
+            <span className="text-2xl font-bold tracking-[-0.04em] text-text group-hover:text-primary transition-colors">
+              KASPIT
+            </span>
+            <span className="text-[0.55rem] font-medium tracking-[0.25em] text-text-dim block -mt-0.5">
+              SECURITY
+            </span>
           </div>
+        </a>
 
-          {/* CTA + Hamburger */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <MetalCTA to="/contact" label="Contact" style={{ padding: '0.625rem 1.25rem', fontSize: '0.75rem' }} />
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="mobile-menu-btn"
-              style={{
-                display: 'none',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '0.5rem',
-                flexDirection: 'column',
-                gap: '5px',
-              }}
-              aria-label="Menu"
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-[0.75rem] font-medium text-text-muted hover:text-primary tracking-[0.08em] uppercase transition-colors duration-300 relative group"
             >
-              <span style={{ display: 'block', width: '22px', height: '1.5px', background: 'var(--text)', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
-              <span style={{ display: 'block', width: '22px', height: '1.5px', background: 'var(--text)', transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
-              <span style={{ display: 'block', width: '22px', height: '1.5px', background: 'var(--text)', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
-            </button>
-          </div>
+              {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-300" />
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="btn-primary ml-4 !py-2.5 !px-5 !text-xs"
+          >
+            Get in Touch
+          </a>
         </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span
+            className={clsx(
+              'block w-6 h-[1.5px] bg-text transition-all duration-300',
+              menuOpen && 'rotate-45 translate-y-[7.5px]'
+            )}
+          />
+          <span
+            className={clsx(
+              'block w-6 h-[1.5px] bg-text transition-all duration-300',
+              menuOpen && 'opacity-0'
+            )}
+          />
+          <span
+            className={clsx(
+              'block w-6 h-[1.5px] bg-text transition-all duration-300',
+              menuOpen && '-rotate-45 -translate-y-[4.5px]'
+            )}
+          />
+        </button>
       </nav>
 
-      {/* Mobile menu */}
-      <div style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 99,
-        background: 'rgba(5, 7, 15, 0.98)',
-        backdropFilter: 'blur(20px)',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '2rem',
-        opacity: menuOpen ? 1 : 0,
-        pointerEvents: menuOpen ? 'all' : 'none',
-        transition: 'opacity 0.4s ease',
-      }}>
-        {navLinks.map(link => (
-          <Link
-            key={link.href}
-            to={link.href}
-            style={{
-              fontSize: '2rem',
-              fontWeight: '700',
-              letterSpacing: '-0.02em',
-              color: 'var(--text)',
-              transition: 'color 0.2s',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'var(--blue-light)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'var(--text)')}
+      {/* Mobile Menu */}
+      <div
+        className={clsx(
+          'md:hidden fixed inset-0 top-20 bg-dark/95 backdrop-blur-2xl transition-all duration-500 flex flex-col items-center justify-center gap-8',
+          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        )}
+      >
+        {navLinks.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            onClick={() => setMenuOpen(false)}
+            className="text-2xl font-display text-text-muted hover:text-primary tracking-[-0.02em] transition-colors"
           >
             {link.label}
-          </Link>
+          </a>
         ))}
-        <MetalCTA to="/contact" label="Start a Confidential Conversation" style={{ marginTop: '1rem' }} />
+        <a
+          href="#contact"
+          onClick={() => setMenuOpen(false)}
+          className="btn-primary mt-4"
+        >
+          Get in Touch
+        </a>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .desktop-nav { display: none !important; }
-          .mobile-menu-btn { display: flex !important; }
-        }
-      `}</style>
-    </>
+    </header>
   )
 }

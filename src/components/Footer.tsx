@@ -1,86 +1,93 @@
 import { Link } from 'react-router-dom'
 
+const footerLinks = [
+  { label: 'Services', href: '/services' },
+  { label: 'Training', href: '/training' },
+  { label: 'Security Consulting & Audits', href: '/services/audits' },
+  { label: 'The KASPIT Advantage', href: '/advantage' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+]
+
 const services = [
-  { label: 'Security Management', href: '/security-management' },
-  { label: 'Security Audits', href: '/security-audits' },
-  { label: 'Investigations', href: '/investigations' },
-  { label: 'Emergency Assistance', href: '/emergency' },
-  { label: 'Intelligence', href: '/intelligence' },
-  { label: 'Elite Training', href: '/training' },
+  { label: 'Investigations', href: '/services/investigations' },
+  { label: 'Security Management', href: '/services/security-management' },
+  { label: 'Emergency Assistance', href: '/services/emergency' },
+  { label: 'Intelligence', href: '/services/intelligence' },
+  { label: 'Training', href: '/training' },
 ]
 
 export default function Footer() {
   return (
-    <footer style={{
-      background: 'var(--surface)',
-      borderTop: '1px solid var(--border)',
-      position: 'relative',
-      zIndex: 1,
-    }}>
-      <div className="container" style={{ padding: '5rem 2rem 3rem' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '3rem',
-          marginBottom: '4rem',
-        }}>
+    <footer className="bg-dark-900 border-t border-white/[0.04]">
+      <div className="section-padding py-20 lg:py-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-              <div style={{
-                width: '36px', height: '36px',
-                background: 'var(--blue)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '0.75rem', fontWeight: '800', color: 'white',
-              }}>K</div>
-              <div>
-                <div style={{ fontSize: '0.9375rem', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase' }}>KASPIT</div>
-                <div style={{ fontSize: '0.625rem', fontWeight: '500', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>Security GmbH</div>
-              </div>
-            </div>
-            <p style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'var(--text-dim)', maxWidth: '280px' }}>
+          <div className="lg:col-span-1">
+            <img
+              src={`${import.meta.env.BASE_URL}images/kaspit-logo-full.webp`}
+              alt="KASPIT Security Solutions"
+              className="h-9 w-auto mb-6"
+            />
+            <p className="body-md max-w-xs">
               Austria's elite intelligence-led security atelier. Part of the international KASPIT Group.
             </p>
-            <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', letterSpacing: '0.05em' }}>Vienna, Austria</span>
-              <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', letterSpacing: '0.05em' }}>Branches: Germany · Israel</span>
+            <div className="mt-6 flex flex-col gap-2">
+              <span className="text-sm text-text-muted">Vienna, Austria</span>
+              <span className="text-sm text-text-muted">Branches: Germany &middot; Israel</span>
+            </div>
+
+            {/* Social */}
+            <div className="mt-8 flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/company/kaspit-gmbh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="KASPIT Security on LinkedIn"
+                className="group relative w-11 h-11 flex items-center justify-center border border-white/[0.08] rounded-sm overflow-hidden transition-all duration-500 hover:border-primary/40"
+              >
+                <span className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/20 group-hover:via-primary/5 group-hover:to-transparent transition-all duration-500" />
+                <svg
+                  className="relative w-[18px] h-[18px] text-text-muted group-hover:text-primary transition-colors duration-500"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/>
+                </svg>
+              </a>
             </div>
           </div>
 
-          {/* Services */}
+          {/* Quick Links */}
           <div>
-            <h4 style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Services</h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {services.map(s => (
-                <li key={s.href}>
-                  <Link to={s.href} style={{
-                    fontSize: '0.875rem',
-                    color: 'var(--text-dim)',
-                    transition: 'color 0.2s',
-                  }}
-                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-dim)')}
-                  >{s.label}</Link>
+            <h4 className="label-text mb-6">Navigation</h4>
+            <ul className="flex flex-col gap-3">
+              {footerLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-text-muted hover:text-primary transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Services */}
           <div>
-            <h4 style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Company</h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {[
-                { label: 'About Us', href: '/about' },
-                { label: 'The KASPIT Advantage', href: '/advantage' },
-                { label: 'Insights', href: '/insights' },
-                { label: 'Contact', href: '/contact' },
-              ].map(s => (
-                <li key={s.href}>
-                  <Link to={s.href} style={{ fontSize: '0.875rem', color: 'var(--text-dim)', transition: 'color 0.2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-dim)')}
-                  >{s.label}</Link>
+            <h4 className="label-text mb-6">Services</h4>
+            <ul className="flex flex-col gap-3">
+              {services.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-text-muted hover:text-primary transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -88,25 +95,40 @@ export default function Footer() {
 
           {/* CTA */}
           <div>
-            <h4 style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Engage</h4>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-dim)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
-              All inquiries handled with the highest level of discretion within 12 hours.
+            <h4 className="label-text mb-6">Get in Touch</h4>
+            <p className="body-md mb-6">
+              All inquiries are handled with the highest level of discretion.
             </p>
-            <Link to="/contact" className="btn-primary" style={{ fontSize: '0.75rem', padding: '0.75rem 1.5rem' }}>
-              <span>Request Assessment</span>
+            <Link to="/contact" className="btn-outline text-xs">
+              Start a Conversation
             </Link>
           </div>
         </div>
+      </div>
 
-        <div className="divider" />
-
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
-          <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
-            © 2026 KASPIT Security GmbH · All rights reserved
+      {/* Bottom Bar */}
+      <div className="section-padding py-6 border-t border-white/[0.04]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-text-dim">
+            &copy; {new Date().getFullYear()} KASPIT Security &middot; All rights reserved
           </p>
-          <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', letterSpacing: '0.05em' }}>
-            Part of the international KASPIT Group · Vienna · Germany · Israel
-          </p>
+          <div className="flex flex-wrap items-center gap-6">
+            <Link
+              to="/imprint"
+              className="text-xs text-text-dim hover:text-primary transition-colors duration-300"
+            >
+              Imprint
+            </Link>
+            <Link
+              to="/terms"
+              className="text-xs text-text-dim hover:text-primary transition-colors duration-300"
+            >
+              Terms & Conditions
+            </Link>
+            <p className="text-xs text-text-dim">
+              Part of the international KASPIT Group
+            </p>
+          </div>
         </div>
       </div>
     </footer>

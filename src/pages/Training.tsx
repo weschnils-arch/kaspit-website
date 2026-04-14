@@ -1,80 +1,226 @@
-import ServicePage from './ServicePage'
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
+import MetalCTA from '../components/ui/MetalCTA'
 
 const programs = [
   {
     title: 'Security Training',
-    desc: 'Develop the mindset and physical skills that keep you safe in any environment. Our programs include precision shooting (pistol and rifle – defensive and tactical applications), Krav Maga specifically adapted for executives (practical self-defence, threat neutralization and de-escalation), and advanced surveillance detection and anti-ambush techniques.',
-    items: ['Precision shooting — defensive & tactical', 'Executive Krav Maga & de-escalation', 'Surveillance detection & anti-ambush'],
+    desc: 'Precision shooting (pistol and rifle), Krav Maga adapted for executives, surveillance detection and anti-ambush techniques.',
+    details: [
+      'Defensive and tactical shooting applications',
+      'Executive self-defence and threat neutralization',
+      'De-escalation techniques',
+      'Advanced surveillance detection',
+    ],
   },
   {
     title: 'Travel Safety & HEAT Training',
-    desc: 'Prepare your people to operate confidently in any part of the world. Our Hostile Environment Awareness Training (HEAT) covers secure travel planning, situational awareness, kidnap avoidance, high-risk environment preparation and crisis response protocols. Each session is customised to your destinations and threat levels.',
-    items: ['Secure travel planning', 'Kidnap avoidance protocols', 'Crisis response procedures'],
+    desc: 'Hostile Environment Awareness Training covering secure travel planning, situational awareness, kidnap avoidance and crisis response.',
+    details: [
+      'Secure travel planning and protocols',
+      'Situational awareness mastery',
+      'Kidnap avoidance and high-risk preparation',
+      'Crisis response procedures',
+    ],
   },
   {
     title: 'Medical Training',
-    desc: 'When seconds count, knowledge saves lives. Our medical training programs are delivered through our partners at Critical Knowledge – official Stop The Bleed® Partner in Austria. Using highly realistic wound simulations, participants receive immersive, scenario-based training including official Stop The Bleed® certification, Active First Responder trauma care, rapid haemorrhage control, tourniquet application and immediate life-saving interventions.',
-    items: ['Official Stop The Bleed® certification', 'Active First Responder trauma care', 'Tourniquet & haemorrhage control'],
+    desc: 'Through our partners at Critical Knowledge -- official Stop The Bleed Partner in Austria. Immersive, scenario-based trauma care training.',
+    details: [
+      'Official Stop The Bleed certification',
+      'Active First Responder trauma care',
+      'Rapid haemorrhage control',
+      'Tourniquet application and life-saving interventions',
+    ],
+  },
+]
+
+const gains = [
+  'Instinctive skills that work under real pressure',
+  'Full compliance with corporate duty-of-care and insurance standards',
+  'Measurable increase in team confidence and capability',
+  'Private format with absolute discretion',
+  'Official certificates and scheduled refresher training',
+]
+
+const approach = [
+  {
+    title: 'Confidential Risk & Skills Assessment',
+    desc: 'We begin with a private review of your operational profile, threats faced, and existing capability gaps.',
+  },
+  {
+    title: 'Customised Program Design',
+    desc: 'Fully bespoke curriculum and scenario planning built around your exact destinations, threat levels and objectives.',
+  },
+  {
+    title: 'Intensive Hands-On Training',
+    desc: 'Delivered by elite, experienced instructors in small private groups or one-to-one format with absolute discretion.',
+  },
+  {
+    title: 'Evaluation & Refresher Plan',
+    desc: 'Post-training feedback, performance evaluation, and a scheduled refresher plan to keep skills sharp over time.',
   },
 ]
 
 export default function Training() {
+  usePageTitle('Elite Training & Capacity Building')
+  const heroRef = useScrollReveal<HTMLDivElement>()
+  const introRef = useScrollReveal<HTMLDivElement>()
+  const programsRef = useScrollReveal<HTMLDivElement>()
+  const gainsRef = useScrollReveal<HTMLDivElement>()
+  const approachRef = useScrollReveal<HTMLDivElement>()
+  const ctaRef = useScrollReveal<HTMLDivElement>()
+
   return (
-    <ServicePage
-      label="Elite Training"
-      headline={<>Elite Training &<br /><span className="text-gradient">Capacity Building</span></>}
-      subheadline="Hands-on, intelligence-informed programs that equip executives, teams and high-net-worth individuals with practical skills for real-world threats. Delivered to the same elite standards as our operational services."
-      intro={
-        <>
-          <p style={{ marginBottom: '1.5rem' }}>
-            Knowledge alone is not enough — real resilience comes from instinctive skills developed under realistic pressure. KASPIT Security offers bespoke training programs designed for corporations, executives and security professionals who refuse to settle for generic courses.
+    <>
+      {/* Hero */}
+      <section ref={heroRef} className="section-padding pt-36 pb-20 lg:pt-44 lg:pb-28 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-[150px]" />
+        </div>
+        <div className="relative z-10 max-w-4xl">
+          <span data-reveal className="label-text">Training Programs</span>
+          <h1 data-reveal className="heading-xl mt-4 mb-6">
+            Elite Training &<br /><span className="text-primary">Capacity Building</span>
+          </h1>
+          <p data-reveal className="body-lg max-w-2xl">
+            Hands-on, intelligence-informed programs that equip executives, teams and
+            high-net-worth individuals with practical skills for real-world threats.
+            Delivered to the same elite standards as our operational services.
           </p>
-          <p style={{ marginBottom: '1.5rem' }}>
-            Every program is intelligence-informed, scenario-based and tailored to your exact risk profile, turning theory into muscle memory and confidence.
-          </p>
-          <p>
-            Conducted in small private groups or one-to-one format with absolute discretion and supported by the international infrastructure of the KASPIT Group, our training bridges the gap between awareness and capability across our branches in Austria, Germany and Israel.
-          </p>
-        </>
-      }
-      benefits={[
-        'Instinctive skills that work under real pressure',
-        'Full compliance with corporate duty-of-care and insurance standards',
-        'Measurable increase in team confidence and capability',
-        'Private format with absolute discretion',
-        'Official certificates and scheduled refresher training',
-      ]}
-      extra={
-        <div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: 'var(--border)', border: '1px solid var(--border)' }}>
-            {programs.map((prog, i) => (
-              <div key={i} style={{ background: 'var(--surface)', padding: '2.5rem' }}>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: '700', color: 'var(--text)', marginBottom: '1rem' }}>{prog.title}</h3>
-                <p style={{ fontSize: '0.9375rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '1.25rem' }}>{prog.desc}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {prog.items.map((item, j) => (
-                    <span key={j} style={{
-                      padding: '0.375rem 0.875rem',
-                      border: '1px solid var(--border-strong)',
-                      fontSize: '0.75rem',
-                      color: 'var(--text-muted)',
-                      letterSpacing: '0.05em',
-                    }}>{item}</span>
+        </div>
+      </section>
+
+      <div className="section-padding"><div className="divider" /></div>
+
+      {/* Introduction */}
+      <section ref={introRef} className="section-padding py-24 lg:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+          <div data-reveal>
+            <span className="label-text">Introduction</span>
+            <h2 className="heading-lg mt-4">
+              From Knowledge to<br /><span className="text-primary">Muscle Memory</span>
+            </h2>
+          </div>
+          <div data-reveal className="space-y-6 body-lg">
+            <p>
+              Knowledge alone is not enough — real resilience comes from instinctive skills
+              developed under realistic pressure. KASPIT Security offers bespoke training
+              programs designed for corporations, executives and security professionals who
+              refuse to settle for generic courses. Every program is intelligence-informed,
+              scenario-based and tailored to your exact risk profile, turning theory into
+              muscle memory and confidence.
+            </p>
+            <p>
+              Conducted in small private groups or one-to-one format with absolute discretion
+              and supported by the international infrastructure of the KASPIT Group, our training
+              bridges the gap between awareness and capability across our branches in Austria,
+              Germany and Israel.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs */}
+      <section ref={programsRef} className="section-padding py-24 lg:py-36">
+        <div className="space-y-8">
+          {programs.map((program, i) => (
+            <div
+              key={program.title}
+              data-reveal
+              className="glass-card rounded-sm p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16"
+            >
+              <div>
+                <span className="label-text text-[0.625rem]">Program 0{i + 1}</span>
+                <h3 className="heading-md mt-3 mb-4">{program.title}</h3>
+                <p className="body-lg">{program.desc}</p>
+              </div>
+              <div>
+                <h4 className="text-sm font-medium text-text-muted mb-4 tracking-wide uppercase">What You Learn</h4>
+                <ul className="space-y-3">
+                  {program.details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                      <span className="body-md text-text">{detail}</span>
+                    </li>
                   ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* What You Gain */}
+      <section ref={gainsRef} className="section-padding py-24 lg:py-36 bg-dark-900">
+        <div className="max-w-3xl mx-auto text-center" data-reveal>
+          <span className="label-text">Results</span>
+          <h2 className="heading-lg mt-4 mb-12">What You <span className="text-primary">Gain</span></h2>
+          <div className="space-y-4">
+            {gains.map((gain) => (
+              <div
+                key={gain}
+                className="flex items-center gap-4 text-left py-4 border-b border-white/[0.04] last:border-0"
+              >
+                <div className="w-6 h-6 rounded-full border border-primary/30 flex items-center justify-center shrink-0">
+                  <svg width="10" height="10" viewBox="0 0 16 16" fill="none" className="text-primary">
+                    <path d="M3 8l4 4 6-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <span className="body-lg text-text">{gain}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Approach */}
+      <section ref={approachRef} className="section-padding py-24 lg:py-36">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16" data-reveal>
+            <span className="label-text">Methodology</span>
+            <h2 className="heading-lg mt-4">Our <span className="text-primary">Approach</span></h2>
+          </div>
+          <div className="space-y-6">
+            {approach.map((step, i) => (
+              <div
+                key={step.title}
+                data-reveal
+                className="group glass-card rounded-sm p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-12 transition-all duration-500 hover:border-primary/30 hover:bg-dark-800/80 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(176,190,197,0.06)]"
+              >
+                <span className="text-xs text-text-dim font-mono tracking-wider group-hover:text-primary transition-colors duration-500">0{i + 1}</span>
+                <div>
+                  <h3 className="heading-sm mb-3 group-hover:text-primary transition-colors duration-500">{step.title}</h3>
+                  <p className="body-md">{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      }
-      approach={[
-        { step: 'Risk & skills-needs assessment', desc: 'Confidential evaluation of your risk profile and current capability gaps.' },
-        { step: 'Customised program design', desc: 'Fully tailored curriculum and scenario planning for your exact needs.' },
-        { step: 'Intensive hands-on training', desc: 'Elite, experienced instructors deliver real-world immersive training.' },
-        { step: 'Post-training evaluation', desc: 'Feedback, certification, and an ongoing refresher plan for sustained resilience.' },
-      ]}
-      ctaText="Build real resilience today."
-      ctaBtn="Request a Confidential Training Consultation"
-    />
+      </section>
+
+      {/* CTA */}
+      <section ref={ctaRef} className="section-padding py-24 lg:py-36 bg-dark-900 text-center">
+        <div data-reveal className="max-w-2xl mx-auto">
+          <h2 className="heading-lg mb-6">
+            Build Real <span className="text-primary">Resilience</span> Today
+          </h2>
+          <p className="body-lg mb-10">
+            Every program is customised to your exact risk profile and delivered by elite instructors.
+          </p>
+          <MetalCTA
+            to="/contact"
+            label="Request a Confidential Training Consultation"
+            width={300}
+            height={52}
+            icon={
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            }
+          />
+        </div>
+      </section>
+    </>
   )
 }

@@ -1,68 +1,140 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePageTitle } from '../hooks/usePageTitle'
+import MetalCTA from '../components/ui/MetalCTA'
 
 const services = [
-  { num: '01', title: 'Strategic Security Management, Consulting & Audits', desc: '360° concepts, expert consulting, and independent security audits tailored to complex risks — never standard guarding.', href: '/security-management' },
-  { num: '02', title: 'Intelligence-Driven Investigations', desc: 'Uncovering facts with precision and absolute discretion. From background due diligence to complex fraud investigations.', href: '/investigations' },
-  { num: '03', title: 'Security Intelligence & Risk Consulting', desc: 'Uncover the facts — no matter where they\'re hidden. Tactical approach. Global reach. Full spectrum of intelligence disciplines.', href: '/intelligence' },
-  { num: '04', title: 'Emergency Assistance & Duty of Care', desc: 'Rapid worldwide emergency response combined with comprehensive Duty of Care solutions — 24/7, anywhere in the world.', href: '/emergency' },
-  { num: '05', title: 'Independent Security Audits & Compliance', desc: 'Objective evaluations that reveal hidden vulnerabilities and deliver clear, actionable strategies for lasting resilience.', href: '/security-audits' },
-  { num: '06', title: 'Elite Training & Capacity Building', desc: 'Hands-on, intelligence-informed programs for executives, teams and high-net-worth individuals. Delivered to elite standards.', href: '/training' },
+  {
+    num: '01',
+    title: 'Intelligence-Driven Investigations',
+    desc: 'Discreet, intelligence-led investigations that deliver verifiable facts. From background due diligence and asset tracing to complex fraud investigations and litigation support.',
+    href: '/services/investigations',
+    capabilities: ['Background Due Diligence', 'Asset Tracing', 'Fraud Investigation', 'Litigation Support'],
+  },
+  {
+    num: '02',
+    title: 'Strategic Security Management',
+    desc: 'Fully bespoke 360° security concepts integrating risk assessment, executive protection, crisis preparedness, strategic consulting, and independent security audits.',
+    href: '/services/security-management',
+    capabilities: ['Executive Protection', 'Risk Assessment', 'Crisis Management', 'Physical Security'],
+  },
+  {
+    num: '03',
+    title: 'Security Audits & Compliance',
+    desc: 'Independent, high-level security audits that go far beyond standard checklists. Objective assessment of your security posture with actionable recommendations.',
+    href: '/services/audits',
+    capabilities: ['Posture Assessment', 'Compliance Review', 'Gap Analysis', 'Executive Protection Audits'],
+  },
+  {
+    num: '04',
+    title: 'Emergency Assistance & Duty of Care',
+    desc: 'Immediate, intelligence-supported emergency assistance anywhere in the world with 24/7 command structure and global network of trusted assets.',
+    href: '/services/emergency',
+    capabilities: ['24/7 Response', 'Medical Evacuation', 'Crisis Extraction', 'Pre-Travel Advisory'],
+  },
+  {
+    num: '05',
+    title: 'Security Intelligence & Risk Consulting',
+    desc: 'Full spectrum intelligence disciplines -- HUMINT, SIGINT, GEOINT, MASINT, OSINT, TECHINT -- combined with cutting-edge technology to reveal the hidden and unknown.',
+    href: '/services/intelligence',
+    capabilities: ['Competitive Intelligence', 'Threat Assessment', 'Counter-Intelligence', 'Due Diligence'],
+  },
+  {
+    num: '06',
+    title: 'Elite Training & Capacity Building',
+    desc: 'Bespoke training programs designed for corporations, executives and security professionals. Intelligence-informed, scenario-based, tailored to your risk profile.',
+    href: '/training',
+    capabilities: ['Precision Shooting', 'Krav Maga', 'HEAT Training', 'Medical Response'],
+  },
 ]
 
 export default function Services() {
-  const ref = useRef<HTMLElement>(null)
-  const gridRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    if (ref.current) {
-      const els = ref.current.querySelectorAll('.reveal')
-      gsap.fromTo(els, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.2 })
-    }
-    if (gridRef.current) {
-      const cards = gridRef.current.querySelectorAll('.svc')
-      gsap.fromTo(cards, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-        scrollTrigger: { trigger: gridRef.current, start: 'top 80%' } })
-    }
-  }, [])
+  usePageTitle('Strategic Security Services')
+  const heroRef = useScrollReveal<HTMLDivElement>()
+  const gridRef = useScrollReveal<HTMLDivElement>()
+  const ctaRef = useScrollReveal<HTMLDivElement>()
 
   return (
     <>
-      <section ref={ref} style={{ padding: 'clamp(8rem, 18vh, 12rem) 0 clamp(4rem, 8vh, 4rem)' }}>
-        <div className="container">
-          <div className="reveal section-label">Our Services</div>
-          <h1 className="reveal heading-xl" style={{ maxWidth: '800px', marginBottom: '1.5rem' }}>
-            Strategic security solutions
+      {/* Hero */}
+      <section ref={heroRef} className="section-padding pt-36 pb-20 lg:pt-44 lg:pb-28 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-[180px] -translate-x-1/2" />
+        </div>
+        <div className="relative z-10 max-w-4xl">
+          <span data-reveal className="label-text">Our Services</span>
+          <h1 data-reveal className="heading-xl mt-4 mb-6">
+            Strategic <span className="text-primary">Security</span> Services
           </h1>
-          <p className="reveal" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)', maxWidth: '600px', lineHeight: 1.7 }}>
-            Every service is intelligence-led, fully bespoke, and delivered with absolute discretion.
+          <p data-reveal className="body-lg max-w-2xl">
+            From investigations to emergency response, every service is intelligence-led,
+            fully bespoke, and delivered with absolute discretion.
           </p>
         </div>
       </section>
 
-      <section ref={gridRef} style={{ padding: '0 2rem clamp(6rem, 10vw, 8rem)' }}>
-        <div className="container">
-          {services.map((s) => (
-            <Link key={s.href} to={s.href} className="svc" style={{
-              display: 'grid', gridTemplateColumns: '60px 1fr auto', gap: '2rem', alignItems: 'center',
-              padding: '2.5rem 0', borderBottom: '1px solid var(--border)',
-              transition: 'all 0.3s ease', textDecoration: 'none',
-            }}
-              onMouseEnter={e => { e.currentTarget.style.paddingLeft = '1rem'; e.currentTarget.style.background = 'var(--surface)' }}
-              onMouseLeave={e => { e.currentTarget.style.paddingLeft = '0'; e.currentTarget.style.background = 'transparent' }}
+      <div className="section-padding"><div className="divider" /></div>
+
+      {/* Services Grid */}
+      <section ref={gridRef} className="section-padding py-24 lg:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          {services.map((service) => (
+            <Link
+              key={service.num}
+              to={service.href}
+              data-reveal
+              className="group glass-card rounded-sm p-8 lg:p-10 transition-all duration-500 hover:border-primary/10 hover:bg-dark-800/80"
             >
-              <span style={{ fontSize: '0.875rem', fontFamily: 'monospace', color: 'var(--blue-light)' }}>{s.num}</span>
-              <div>
-                <h3 style={{ fontSize: 'clamp(1.125rem, 2vw, 1.5rem)', fontWeight: 600, marginBottom: '0.5rem', letterSpacing: '-0.01em' }}>{s.title}</h3>
-                <p style={{ fontSize: '0.9375rem', maxWidth: '600px' }}>{s.desc}</p>
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-xs text-text-dim font-mono">{service.num}</span>
+                <div className="flex-1 h-px bg-white/[0.06]" />
+                <div className="w-8 h-8 rounded-full border border-white/[0.08] flex items-center justify-center group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-500">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-text-muted group-hover:text-primary transition-colors">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
               </div>
-              <span style={{ fontSize: '1.5rem', color: 'var(--text-dim)' }}>&rarr;</span>
+
+              <h3 className="heading-sm mb-4 group-hover:text-primary transition-colors duration-500">
+                {service.title}
+              </h3>
+              <p className="body-md mb-8">{service.desc}</p>
+
+              <div className="flex flex-wrap gap-2">
+                {service.capabilities.map((cap) => (
+                  <span
+                    key={cap}
+                    className="text-[0.6875rem] text-text-dim px-3 py-1.5 border border-white/[0.06] rounded-full"
+                  >
+                    {cap}
+                  </span>
+                ))}
+              </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section ref={ctaRef} className="section-padding py-24 lg:py-36 bg-dark-900 text-center">
+        <div data-reveal className="max-w-2xl mx-auto">
+          <h2 className="heading-lg mb-6">
+            Experience the <span className="text-primary">Difference</span>
+          </h2>
+          <p className="body-lg mb-10">
+            Request your confidential risk assessment today. Every conversation begins with discretion.
+          </p>
+          <MetalCTA
+            to="/contact"
+            label="Request a Risk Assessment"
+            width={280}
+            height={52}
+            icon={
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            }
+          />
         </div>
       </section>
     </>

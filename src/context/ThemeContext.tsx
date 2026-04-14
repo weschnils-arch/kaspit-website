@@ -1,32 +1,34 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import type { ReactNode } from 'react'
 
-type AccentMode = 'gold' | 'silver'
+type Theme = 'gold' | 'silver'
 
-interface ThemeContextType {
-  accent: AccentMode
+interface ThemeContextValue {
+  theme: Theme
   toggle: () => void
 }
 
-const ThemeContext = createContext<ThemeContextType>({
-  accent: 'gold',
+const ThemeContext = createContext<ThemeContextValue>({
+  theme: 'silver',
   toggle: () => {},
 })
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [accent, setAccent] = useState<AccentMode>('gold')
+  const [theme, setTheme] = useState<Theme>('silver')
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-accent', accent)
-  }, [accent])
+    document.documentElement.setAttribute('data-theme', theme === 'silver' ? 'silver' : '')
+  }, [theme])
 
-  const toggle = () => setAccent(a => a === 'gold' ? 'silver' : 'gold')
+  const toggle = () => setTheme(t => (t === 'gold' ? 'silver' : 'gold'))
 
   return (
-    <ThemeContext.Provider value={{ accent, toggle }}>
+    <ThemeContext.Provider value={{ theme, toggle }}>
       {children}
     </ThemeContext.Provider>
   )
 }
 
-export const useTheme = () => useContext(ThemeContext)
+export function useTheme() {
+  return useContext(ThemeContext)
+}
