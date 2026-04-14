@@ -42,19 +42,11 @@ const services = [
   },
 ]
 
-const stats = [
-  { value: '20+', label: 'Years Experience' },
-  { value: '3', label: 'Global Branches' },
-  { value: '24/7', label: 'Response Ready' },
-  { value: '100%', label: 'Discretion' },
-]
-
 export default function Home() {
   usePageTitle('Intelligence-Led Security Management')
   const heroRef = useRef<HTMLDivElement>(null)
   const servicesRef = useScrollReveal<HTMLDivElement>()
   const aboutRef = useScrollReveal<HTMLDivElement>()
-  const statsRef = useScrollReveal<HTMLDivElement>()
   const ctaRef = useScrollReveal<HTMLDivElement>()
 
   useEffect(() => {
