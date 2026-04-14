@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useTheme } from '../../context/ThemeContext'
 import LiquidMetalButton from './LiquidMetalButton'
 
 interface MetalCTAProps {
@@ -16,36 +15,35 @@ interface MetalCTAProps {
 export default function MetalCTA({
   to,
   label,
-  icon,
   className = '',
   variant = 'primary',
+  width,
+  height,
 }: MetalCTAProps) {
-  const { theme } = useTheme()
+  const sizeStyle: React.CSSProperties = {}
+  if (width !== undefined) {
+    sizeStyle.width = `${width}px`
+    sizeStyle.minWidth = `${width}px`
+    sizeStyle.maxWidth = `${width}px`
+  }
+  if (height !== undefined) {
+    sizeStyle.height = `${height}px`
+    sizeStyle.minHeight = `${height}px`
+    sizeStyle.maxHeight = `${height}px`
+  }
 
-  // Outline buttons stay as-is in both modes
   if (variant === 'outline') {
     return (
-      <Link to={to} className={`btn-outline ${className}`}>
+      <Link to={to} className={`btn-outline ${className}`} style={sizeStyle}>
         {label}
-        {icon}
       </Link>
     )
   }
 
-  // Gold mode = normal btn-primary
-  if (theme === 'gold') {
-    return (
-      <Link to={to} className={`btn-primary ${className}`}>
-        {label}
-        {icon}
-      </Link>
-    )
-  }
-
-  // Silver mode = liquid metal shader button (auto-sized)
+  // Primary = liquid metal animated ring (same look across themes)
   return (
-    <Link to={to} className={`inline-block ${className}`}>
-      <LiquidMetalButton label={label} />
+    <Link to={to} className={`inline-block ${className}`} style={sizeStyle}>
+      <LiquidMetalButton label={label} width={width} height={height} />
     </Link>
   )
 }

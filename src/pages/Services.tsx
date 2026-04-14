@@ -6,21 +6,21 @@ import MetalCTA from '../components/ui/MetalCTA'
 const services = [
   {
     num: '01',
-    title: 'Intelligence-Driven Investigations',
+    title: 'Investigations',
     desc: 'Discreet, intelligence-led investigations that deliver verifiable facts. From background due diligence and asset tracing to complex fraud investigations and litigation support.',
     href: '/services/investigations',
     capabilities: ['Background Due Diligence', 'Asset Tracing', 'Fraud Investigation', 'Litigation Support'],
   },
   {
     num: '02',
-    title: 'Strategic Security Management',
+    title: 'Security Management',
     desc: 'Fully bespoke 360° security concepts integrating risk assessment, executive protection, crisis preparedness, strategic consulting, and independent security audits.',
     href: '/services/security-management',
     capabilities: ['Executive Protection', 'Risk Assessment', 'Crisis Management', 'Physical Security'],
   },
   {
     num: '03',
-    title: 'Security Audits & Compliance',
+    title: 'Security Audits',
     desc: 'Independent, high-level security audits that go far beyond standard checklists. Objective assessment of your security posture with actionable recommendations.',
     href: '/services/audits',
     capabilities: ['Posture Assessment', 'Compliance Review', 'Gap Analysis', 'Executive Protection Audits'],
@@ -34,14 +34,14 @@ const services = [
   },
   {
     num: '05',
-    title: 'Security Intelligence & Risk Consulting',
+    title: 'Intelligence',
     desc: 'Full spectrum intelligence disciplines -- HUMINT, SIGINT, GEOINT, MASINT, OSINT, TECHINT -- combined with cutting-edge technology to reveal the hidden and unknown.',
     href: '/services/intelligence',
     capabilities: ['Competitive Intelligence', 'Threat Assessment', 'Counter-Intelligence', 'Due Diligence'],
   },
   {
     num: '06',
-    title: 'Elite Training & Capacity Building',
+    title: 'Training',
     desc: 'Bespoke training programs designed for corporations, executives and security professionals. Intelligence-informed, scenario-based, tailored to your risk profile.',
     href: '/training',
     capabilities: ['Precision Shooting', 'Krav Maga', 'HEAT Training', 'Medical Response'],

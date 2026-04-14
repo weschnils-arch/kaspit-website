@@ -64,7 +64,7 @@ export default function SecurityAudits() {
         </div>
         <div className="relative z-10 max-w-4xl">
           <span data-reveal className="label-text">Service 03 — Security Audits</span>
-          <h1 data-reveal className="heading-xl mt-4 mb-6">
+          <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Independent Security Audits &<br />
             <span className="text-primary">Compliance Reviews</span>
           </h1>
@@ -193,27 +193,26 @@ export default function SecurityAudits() {
 
       {/* CTA */}
       <section ref={ctaRef} className="section-padding py-24 lg:py-36 text-center">
-        <div data-reveal className="max-w-2xl mx-auto">
+        <div data-reveal className="max-w-3xl mx-auto">
           <h2 className="heading-lg mb-6">
             Gain Clarity in Your <span className="text-primary">Security Posture</span>
           </h2>
           <p className="body-lg mb-10">
             Request a confidential security audit or book a private consultation with Maxim.
           </p>
-          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-4 sm:items-stretch">
+          <div className="flex flex-col items-center gap-4">
             <MetalCTA
               to="/contact"
               label="Request a Confidential Security Audit"
-              icon={
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              }
+              width={460}
+              height={52}
             />
             <MetalCTA
               to="/contact"
               label="Book a Private Consultation"
               variant="outline"
+              width={460}
+              height={52}
             />
           </div>
         </div>

@@ -56,7 +56,7 @@ export default function EmergencyAssistance() {
         </div>
         <div className="relative z-10 max-w-4xl">
           <span data-reveal className="label-text">Service 04 — Emergency Assistance</span>
-          <h1 data-reveal className="heading-xl mt-4 mb-6">
+          <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Emergency Assistance &<br />
             <span className="text-primary">Duty of Care</span>
           </h1>
@@ -182,15 +182,14 @@ export default function EmergencyAssistance() {
           <p className="body-lg mb-10">
             Protect your people and operations with a confidential review of your current emergency readiness.
           </p>
-          <MetalCTA
-            to="/contact"
-            label="Request a Confidential Review today"
-            icon={
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            }
-          />
+          <div className="flex justify-center">
+            <MetalCTA
+              to="/contact"
+              label="Request a Confidential Review today"
+              width={380}
+              height={52}
+            />
+          </div>
         </div>
       </section>
     </>

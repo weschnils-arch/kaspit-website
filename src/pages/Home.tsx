@@ -11,37 +11,32 @@ gsap.registerPlugin(ScrollTrigger)
 
 const services = [
   {
-    label: 'Investigations',
-    title: 'Intelligence-Driven Investigations',
-    desc: 'Uncovering facts with precision and absolute discretion.',
+    title: 'Investigations',
+    desc: 'Intelligence-Driven Investigations Uncovering facts with precision and absolute discretion.',
     href: '/services/investigations',
     num: '01',
   },
   {
-    label: 'Security',
-    title: 'Strategic Security Management, Consulting & Audits',
-    desc: '360° concepts, expert consulting, and independent security audits tailored to complex risks — never standard guarding.',
+    title: 'Security Management',
+    desc: 'Strategic Security Management, Consulting & Audits 360° concepts, expert consulting, and independent security audits tailored to complex risks — never standard guarding.',
     href: '/services/security-management',
     num: '02',
   },
   {
-    label: 'Emergency',
     title: 'Emergency Assistance & Duty of Care',
-    desc: 'Rapid worldwide response combined with full corporate Duty of Care.',
+    desc: 'Emergency Assistance & Duty of Care Rapid worldwide response combined with full corporate Duty of Care.',
     href: '/services/emergency',
     num: '03',
   },
   {
-    label: 'Intelligence',
     title: 'Intelligence',
-    desc: 'Uncover the facts — no matter where they\'re hidden. Tactical approach. Global reach.',
+    desc: 'Security Intelligence & Risk Consulting Uncover the facts — no matter where they\u2019re hidden. Tactical approach. Global reach.',
     href: '/services/intelligence',
     num: '04',
   },
   {
-    label: 'Training',
     title: 'Training',
-    desc: 'Hands-on programs that build real resilience in security, travel safety and medical response.',
+    desc: 'Elite Training & Capacity Building Hands-on programs that build real resilience in security, travel safety and medical response.',
     href: '/training',
     num: '05',
   },
@@ -152,24 +147,23 @@ export default function Home() {
               Protecting what matters most with strategic precision and absolute discretion.
             </p>
 
-            <div className="hero-cta flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:items-stretch" style={{ opacity: 0 }}>
-              <MetalCTA
-                to="/contact"
-                label="Request a Confidential Risk Assessment"
-                width={320}
-                height={52}
-                icon={
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                }
-              />
-              <MetalCTA
-                to="/contact"
-                label="Book a Private Consultation with Maxim"
-                variant="outline"
-                className="!py-[14px]"
-              />
+            <div className="hero-cta" style={{ opacity: 0 }}>
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:items-center">
+                <MetalCTA
+                  to="/contact"
+                  label="Request a Confidential Risk Assessment"
+                  width={420}
+                  height={52}
+                />
+                <MetalCTA
+                  to="/contact"
+                  label="Book a Private Consultation with Maxim"
+                  variant="outline"
+                  width={420}
+                  height={52}
+                />
+              </div>
+              <span className="block mt-3 text-[0.6875rem] text-text-dim tracking-wider uppercase">Free &middot; No obligation</span>
             </div>
           </div>
 
@@ -195,17 +189,10 @@ export default function Home() {
 
       {/* Services */}
       <section ref={servicesRef} className="section-padding py-24 lg:py-36">
-        <div data-reveal className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 lg:mb-24">
-          <div>
-            <span className="label-text">Our Strategic Services</span>
-            <h2 className="heading-lg mt-4">
-              Comprehensive<br />
-              <span className="text-primary">Security Solutions</span>
-            </h2>
-          </div>
-          <p className="body-lg max-w-md">
-            From investigations to emergency response, every engagement is tailored to your exact risk environment.
-          </p>
+        <div data-reveal className="mb-16 lg:mb-24">
+          <h2 className="heading-lg">
+            Our Strategic <span className="text-primary">Services</span>
+          </h2>
         </div>
 
         <div className="flex flex-col">
@@ -236,24 +223,14 @@ export default function Home() {
       <section ref={aboutRef} className="section-padding py-24 lg:py-36 bg-dark-900">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div data-reveal>
-            <span className="label-text">About KASPIT</span>
-            <h2 className="heading-lg mt-4 mb-8">
-              Founded on<br />
-              <span className="text-primary">Operational Excellence</span>
+            <h2 className="heading-lg mb-8">
+              Welcome to <span className="text-primary">KASPIT</span>
             </h2>
             <p className="body-lg mb-6">
-              KASPIT Security is the premium boutique arm of the international KASPIT Group.
-              With branches across Europe (Austria and Germany) and the Middle East (Israel),
-              we deliver intelligence-led, fully bespoke solutions that protect your most
-              valuable assets — your people, your operations and your peace of mind.
+              KASPIT Security is the premium boutique arm of the international KASPIT Group. With branches across Europe (Austria and Germany) and the Middle East (Israel), we deliver intelligence-led, fully bespoke solutions that protect your most valuable assets — your people, your operations and your peace of mind.
             </p>
             <p className="body-lg mb-10">
-              Every engagement is tailored to your exact risk environment. This includes
-              strategic security consulting and independent audits that identify vulnerabilities,
-              strengthen resilience, and ensure compliance at the highest level. Whether you
-              face complex investigations, need sophisticated security architecture with expert
-              consulting and audits, global emergencies, or elite training, KASPIT Security is
-              the trusted partner that discerning executives and corporations choose to stay ahead.
+              Every engagement is tailored to your exact risk environment. This includes strategic security consulting and independent audits that identify vulnerabilities, strengthen resilience, and ensure compliance at the highest level. Whether you face complex investigations, need sophisticated security architecture with expert consulting and audits, global emergencies, or elite training, KASPIT Security is the trusted partner that discerning executives and corporations choose to stay ahead.
             </p>
             <MetalCTA
               to="/about"
@@ -267,7 +244,7 @@ export default function Home() {
             />
           </div>
 
-          <div data-reveal className="relative max-w-[420px] lg:ml-auto">
+          <div data-reveal className="relative max-w-[384px] lg:ml-auto lg:mr-[72px]">
             <div className="aspect-[3/4] rounded-sm overflow-hidden relative">
               <img
                 src={`${import.meta.env.BASE_URL}images/maxim-gutman.webp`}
@@ -296,35 +273,32 @@ export default function Home() {
         <div className="relative z-10 text-center max-w-3xl mx-auto" data-reveal>
           <span className="label-text">Take the First Step</span>
           <h2 className="heading-lg mt-4 mb-6">
-            Ready to Secure<br />
-            <span className="text-primary">What Matters Most?</span>
+            Ready to secure<br />
+            <span className="text-primary">what matters most?</span>
           </h2>
           <p className="body-lg mb-12 max-w-xl mx-auto">
             Every conversation begins with discretion. Request a confidential risk assessment
             or book a private consultation with Maxim.
           </p>
-          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-4 sm:items-stretch">
+          <div className="flex flex-col items-center gap-5 text-center">
             <MetalCTA
               to="/contact"
               label="Request a Confidential Risk Assessment"
-              width={320}
+              width={420}
               height={52}
-              icon={
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              }
             />
+            <span className="text-[0.6875rem] font-light text-text-dim tracking-[0.15em] uppercase">
+              Free &middot; No obligation
+            </span>
+            <div className="h-px w-24 bg-white/10" />
             <MetalCTA
               to="/contact"
               label="Book a Private Consultation with Maxim"
               variant="outline"
-              className="!py-[14px]"
+              width={420}
+              height={52}
             />
           </div>
-          <p className="mt-6 text-xs text-text-dim tracking-wider uppercase">
-            Free &middot; No obligation &middot; Absolute confidentiality
-          </p>
         </div>
       </section>
     </>

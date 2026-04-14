@@ -19,8 +19,7 @@ export default function ContactPage() {
             Start a <span className="text-primary">Confidential</span> Conversation
           </h1>
           <p data-reveal className="body-lg max-w-2xl">
-            We respond within 12 hours. All inquiries are handled with the highest
-            level of discretion and personal attention.
+            We respond within 12 hours. All inquiries are handled with the highest level of discretion and personal attention.
           </p>
         </div>
       </section>

@@ -5,33 +5,15 @@ import MetalCTA from '../components/ui/MetalCTA'
 const programs = [
   {
     title: 'Security Training',
-    desc: 'Precision shooting (pistol and rifle), Krav Maga adapted for executives, surveillance detection and anti-ambush techniques.',
-    details: [
-      'Defensive and tactical shooting applications',
-      'Executive self-defence and threat neutralization',
-      'De-escalation techniques',
-      'Advanced surveillance detection',
-    ],
+    desc: 'Develop the mindset and physical skills that keep you safe in any environment. Our programs include precision shooting (pistol and rifle – defensive and tactical applications), Krav Maga specifically adapted for executives (practical self-defence, threat neutralization and de-escalation), and advanced surveillance detection and anti-ambush techniques.',
   },
   {
     title: 'Travel Safety & HEAT Training',
-    desc: 'Hostile Environment Awareness Training covering secure travel planning, situational awareness, kidnap avoidance and crisis response.',
-    details: [
-      'Secure travel planning and protocols',
-      'Situational awareness mastery',
-      'Kidnap avoidance and high-risk preparation',
-      'Crisis response procedures',
-    ],
+    desc: 'Prepare your people to operate confidently in any part of the world. Our Hostile Environment Awareness Training (HEAT) covers secure travel planning, situational awareness, kidnap avoidance, high-risk environment preparation and crisis response protocols. Each session is customised to your destinations and threat levels.',
   },
   {
     title: 'Medical Training',
-    desc: 'Through our partners at Critical Knowledge -- official Stop The Bleed Partner in Austria. Immersive, scenario-based trauma care training.',
-    details: [
-      'Official Stop The Bleed certification',
-      'Active First Responder trauma care',
-      'Rapid haemorrhage control',
-      'Tourniquet application and life-saving interventions',
-    ],
+    desc: 'When seconds count, knowledge saves lives. Our medical training programs are delivered through our partners at Critical Knowledge – official Stop The Bleed® Partner in Austria. Using highly realistic wound simulations, participants receive immersive, scenario-based training including official Stop The Bleed® certification, Active First Responder trauma care, rapid haemorrhage control, tourniquet application and immediate life-saving interventions.',
   },
 ]
 
@@ -80,7 +62,7 @@ export default function Training() {
         </div>
         <div className="relative z-10 max-w-4xl">
           <span data-reveal className="label-text">Training Programs</span>
-          <h1 data-reveal className="heading-xl mt-4 mb-6">
+          <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Elite Training &<br /><span className="text-primary">Capacity Building</span>
           </h1>
           <p data-reveal className="body-lg max-w-2xl">
@@ -128,24 +110,11 @@ export default function Training() {
             <div
               key={program.title}
               data-reveal
-              className="glass-card rounded-sm p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16"
+              className="glass-card rounded-sm p-8 lg:p-12"
             >
-              <div>
-                <span className="label-text text-[0.625rem]">Program 0{i + 1}</span>
-                <h3 className="heading-md mt-3 mb-4">{program.title}</h3>
-                <p className="body-lg">{program.desc}</p>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium text-text-muted mb-4 tracking-wide uppercase">What You Learn</h4>
-                <ul className="space-y-3">
-                  {program.details.map((detail) => (
-                    <li key={detail} className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                      <span className="body-md text-text">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <span className="label-text text-[0.625rem]">Program 0{i + 1}</span>
+              <h3 className="heading-md mt-3 mb-4">{program.title}</h3>
+              <p className="body-lg">{program.desc}</p>
             </div>
           ))}
         </div>
@@ -201,24 +170,23 @@ export default function Training() {
 
       {/* CTA */}
       <section ref={ctaRef} className="section-padding py-24 lg:py-36 bg-dark-900 text-center">
-        <div data-reveal className="max-w-2xl mx-auto">
-          <h2 className="heading-lg mb-6">
+        <div data-reveal>
+          <h2 className="heading-lg mb-6 whitespace-nowrap">
             Build Real <span className="text-primary">Resilience</span> Today
           </h2>
-          <p className="body-lg mb-10">
+          <p className="body-lg mb-10 max-w-2xl mx-auto">
             Every program is customised to your exact risk profile and delivered by elite instructors.
           </p>
-          <MetalCTA
-            to="/contact"
-            label="Request a Confidential Training Consultation"
-            width={300}
-            height={52}
-            icon={
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            }
-          />
+          <div className="flex justify-center">
+            <div style={{ width: 440, display: 'flex' }}>
+              <MetalCTA
+                to="/contact"
+                label="Request a Confidential Training Consultation"
+                className="w-full"
+                height={52}
+              />
+            </div>
+          </div>
         </div>
       </section>
     </>

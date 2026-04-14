@@ -1,0 +1,209 @@
+0: [B]HOMEPAGE[/B]
+1: [B]Hero Section[/B] [B]Headline:[/B] KASPIT Security – Austria’s Premier Boutique for Intelligence-Led Security Management 
+2: [B]Sub-headline:[/B] Protecting what matters most with strategic precision and absolute discretion.
+3: [B]Services Teaser Section[/B] [B]Title:[/B] Our Strategic Services
+4: [B]Investigations[/B] Intelligence-Driven Investigations Uncovering facts with precision and absolute discretion.
+5: [B]Security Management[/B] Strategic Security Management, Consulting & Audits 360° concepts, expert consulting, and independent security audits tailored to complex risks — never standard guarding.
+6: [B]Emergency Assistance & Duty of Care[/B] Emergency Assistance & Duty of Care Rapid worldwide response combined with full corporate Duty of Care.
+7: [B]Intelligence[/B] Security Intelligence & Risk Consulting Uncover the facts — no matter where they’re hidden. Tactical approach. Global reach.
+8: [B]Training[/B] Elite Training & Capacity Building Hands-on programs that build real resilience in security, travel safety and medical response.
+9: [B]Welcome Paragraph[/B] (below services teaser) KASPIT Security is the premium boutique arm of the international KASPIT Group. With branches across Europe (Austria and Germany) and the Middle East (Israel), we deliver intelligence-led, fully bespoke solutions that protect your most valuable assets — your people, your operations and your peace of mind.
+10: Every engagement is tailored to your exact risk environment. This includes strategic security consulting and independent audits that identify vulnerabilities, strengthen resilience, and ensure compliance at the highest level. Whether you face complex investigations, need sophisticated security architecture with expert consulting and audits, global emergencies, or elite training, KASPIT Security is the trusted partner that discerning executives and corporations choose to stay ahead.
+11: [B]Final CTA Banner[/B] Ready to secure what matters most? 
+12: [B]Primary Button:[/B] Request a Confidential Risk Assessment (free & no obligation) 
+13: [B]Secondary Button:[/B] Book a Private Consultation with Maxim
+14:
+15:
+16: [B]ABOUT US PAGE[/B]
+17: [B]Hero Headline:[/B] About KASPIT Security 
+18: [B]Sub-headline:[/B] Part of the international KASPIT Group – Founded on real operational excellence.
+19: [B]Founder Section[/B] [B]Maxim Gutman[/B] – Founder & Managing Director Maxim Gutman is the founder and managing director of KASPIT Security, the premium boutique arm of the international KASPIT Group. With over 20 years of experience in elite security, intelligence, and risk management, he is a combat veteran officer of the Israel Defense Forces, where he earned the Operational Service Badge and the Second Lebanon War Ribbon. He has also served as an anti-terror expert for international organisations such as the OSCE, as well as in the corporate world, and has been actively involved in worldwide operations of emergency assistance.
+20: He combines this exceptional operational background with an MBA from the University of Minnesota and full Austrian certifications as Professional Detective and Safety expert. At KASPIT Security he delivers bespoke intelligence-led security solutions — including strategic consulting and independent audits — for executives, corporations and high-net-worth individuals who expect far more than standard services.
+21: [B]Company Story[/B] KASPIT Security was founded in Vienna as the elite boutique division of the international KASPIT Group. With dedicated branches in Austria and Germany (Europe) and Israel (Middle East), we combine the precision of elite military and intelligence experience with Austrian professionalism and true global reach. Every client receives personal attention and solutions designed exclusively for their needs. Discretion, excellence and results are not marketing words — they are our operating principles.
+22: [B]Our Promise[/B] Absolute discretion. Uncompromising quality. Strategic consulting and independent audits that deliver measurable excellence.
+23: [B]CTA[/B] Meet Maxim personally. 
+24: [B]Button:[/B] Book a private consultation.
+25:
+26:
+27:
+28: [B]THE KASPIT ADVANTAGE PAGE[/B]
+29: [B]Headline:[/B] Why KASPIT Security Stands Alone 
+30: [B]Sub-headline:[/B] Competitive edge through cutting-edge technology, best practices, and strategic depth.
+31: [B]Content[/B] KASPIT Security delivers a real competitive advantage by deploying the latest cutting-edge technologies, high-level analytical tools, and the highest industry best practices.
+32: While others offer standard guarding services, we deliver true strategic resilience, intelligence-led protection, expert security consulting, and independent audits. Our clients choose KASPIT Security because they expect — and receive — far more than security. They receive a trusted partner who thinks, plans and acts at the highest level, turning potential weaknesses into proven strengths.
+33: [B]CTA[/B] Experience the difference. 
+34: [B]Button:[/B] Request your confidential risk assessment today.
+35:
+36:
+37:
+38: [B]SECURITY MANAGEMENT PAGE[/B]
+39: [B]Hero Headline:[/B] Strategic Security Management, Consulting & Audits [B]Sub-headline:[/B] 360° concepts, expert consulting, and independent security audits tailored to complex risks — never standard guarding.
+40: [B]Full Introduction[/B] True security is not about placing guards — it is about building lasting resilience through intelligence, foresight, precision planning, and continuous improvement.
+41: KASPIT Security creates fully bespoke 360° security concepts that integrate risk assessment, executive protection, physical and technical measures, crisis preparedness, strategic consulting, and independent security audits into one seamless, intelligence-led strategy.
+42: Our consulting services help you design, optimize, and evolve your security posture. Our audits provide objective evaluations of existing systems, policies, and procedures — identifying gaps, recommending enhancements, and ensuring compliance with Austrian and international standards. Whether you require protection for corporate leadership, high-net-worth families, international operations, or sensitive sites, our solutions are designed around your specific threat landscape and business objectives.
+43: Backed by the global infrastructure of the KASPIT Group and branches in Austria, Germany and Israel, we deliver measurable security excellence that allows you to focus on success while we handle the risks with strategic depth.
+44: [B]What You Gain[/B]
+45: Proactive threat mitigation and strategic foresight instead of reactive measures
+46: Expert consulting that aligns security with your business goals
+47: Independent audits that reveal hidden vulnerabilities and deliver actionable roadmaps
+48: Seamless integration with your daily operations and travel
+49: Scalable solutions that grow with your organisation and regulatory requirements
+50: Reduced exposure, enhanced reputation, and demonstrable compliance
+51: [B]Our Approach[/B]
+52: Comprehensive risk assessment – We analyse your unique vulnerabilities across people, assets, operations, and compliance.
+53: Strategic consulting & concept development – We design custom security architectures and policies tailored to your exact needs.
+54: Independent security audits – Thorough, objective evaluations of current measures with clear findings and prioritised recommendations.
+55: Elite implementation & continuous monitoring – We support rollout and provide ongoing adaptation to evolving threats.
+56: [B]CTA[/B] Let us design, audit, and optimise your personal security architecture. 
+57: [B]Button:[/B] Start with a confidential assessment.
+58:
+59:
+60: [B]SECURITY AUDITS PAGE [/B]
+61: [B]Hero Headline[/B] Independent Security Audits & Compliance Reviews
+62: [B]Sub-headline[/B] Objective evaluations that reveal hidden vulnerabilities and deliver clear, actionable strategies for lasting resilience.
+63: [B]Full Introduction[/B] In an increasingly complex risk environment, even well-intentioned security measures can contain blind spots. KASPIT Security provides independent, high-level security audits that go far beyond standard checklists.
+64: Our audits combine deep intelligence expertise with strategic consulting to deliver an objective, comprehensive assessment of your current security posture — across physical protection, procedures, policies, technology, crisis preparedness, and compliance.
+65: Supported by the international network of the KASPIT Group, every audit is tailored to your specific industry, threat landscape, and organisational needs. We identify gaps others miss, quantify risks with precision, and provide prioritised, practical recommendations that strengthen your protection and reduce exposure.
+66: Whether you require a full enterprise-wide audit, targeted reviews of executive protection programs, due diligence for international operations, or compliance assessments against Austrian and international standards, KASPIT Security delivers the clarity and strategic advantage that discerning clients demand.
+67: [B]What You Gain[/B]
+68: Objective, independent validation of your existing security measures
+69: Identification of hidden vulnerabilities and single points of failure
+70: Clear, prioritised roadmap with immediate and long-term recommendations
+71: Measurable improvements in resilience and risk reduction
+72: Full compliance with Austrian regulations, GDPR, and international Duty of Care standards
+73: Enhanced reputation as a securely managed organisation
+74: Absolute confidentiality
+75: [B]Our Audit Scope[/B]
+76: Comprehensive Security Posture Audits (physical, technical, procedural, and human factors)
+77: Executive Protection Program Audits
+78: Crisis Management & Emergency Response Audits
+79: Travel Security & Duty of Care Audits
+80: Policy, Procedure & Compliance Reviews
+81: Site Security & Perimeter Audits
+82: Intelligence & Counter-Intelligence Program Assessments
+83: Gap Analysis against Austrian and international best practices
+84: [B]Our Approach[/B]
+85: Confidential briefing & scope definition – We start with a private discussion to understand your objectives, constraints, and risk priorities.
+86: Thorough on-site and remote assessment – Multi-disciplinary evaluation using proven intelligence methodologies and advanced analytical tools.
+87: Detailed findings & risk mapping – Clear presentation of vulnerabilities, their potential impact, and likelihood.
+88: Actionable recommendations & roadmap – Prioritised, practical steps with timelines, responsible parties, and estimated effort.
+89: Optional implementation support & follow-up audit – We can assist with rollout and conduct verification audits to confirm improvements.
+90: [B]CTA[/B] Gain clarity and confidence in your security posture. 
+91: [B]Primary Button:[/B] Request a Confidential Security Audit 
+92: [B]Secondary Button:[/B] Book a Private Consultation 
+93:
+94: [B]INVESTIGATIONS PAGE[/B]
+95: [B]Hero Headline:[/B] Intelligence-Driven Investigations 
+96: [B]Sub-headline:[/B] Uncovering facts with precision and absolute discretion.
+97: [B]Full Introduction[/B] In today’s complex business landscape, hidden risks can emerge from anywhere — undisclosed conflicts of interest, competitive threats, fraud or reputational vulnerabilities. At KASPIT Security we conduct discreet, intelligence-led investigations that deliver verifiable facts when you need them most. Every assignment is handled with the highest level of professionalism and absolute confidentiality, drawing on advanced open-source intelligence, human sources and cutting-edge analytical tools.
+98: Supported by the international network of the KASPIT Group, we transform uncertainty into clarity. From comprehensive background due diligence and asset tracing to complex fraud investigations and litigation support, we provide the strategic intelligence that empowers informed decision-making without ever compromising your position.
+99: [B]What You Gain[/B]
+100: Verifiable, court-admissible evidence and intelligence
+101: Complete protection of your confidentiality and reputation
+102: Early identification of hidden risks and opportunities
+103: Clear, actionable recommendations that drive real outcomes
+104: Highest ethical and professional standards
+105: [B]Our Approach[/B]
+106: Confidential briefing – We begin with a private, no-obligation discussion to fully understand your objectives and constraints.
+107: Tailored intelligence strategy – We design a custom plan combining multiple intelligence disciplines for maximum effectiveness.
+108: Professional execution – Our discreet team operates globally with precision and speed across our European and Middle Eastern branches.
+109: Actionable report & follow-up – You receive a clear, concise report with strategic next steps and ongoing support if required.
+110: [B]CTA[/B] Discuss your case in complete confidence. 
+111: [B]Button:[/B] Request a Private Consultation today.
+112:
+113:
+114:
+115:
+116: [B]EMERGENCY ASSISTANCE & DUTY OF CARE PAGE[/B]
+117: [B]Hero Headline:[/B] Emergency Assistance & Duty of Care 
+118: [B]Sub-headline:[/B] Rapid worldwide emergency response combined with comprehensive Duty of Care solutions for your people and operations – 24/7, anywhere in the world.
+119: [B]Full Introduction[/B] KASPIT Security delivers immediate, intelligence-supported emergency assistance and comprehensive Duty of Care solutions anywhere in the world. With decades of proven operational excellence in high-risk environments and the international reach of the KASPIT Group, we maintain a global network of trusted assets and a 24/7 command structure to respond instantly in any situation.
+120: From medical evacuations and crisis extraction to full corporate Duty of Care programmes for travelling executives and international teams, we combine proactive monitoring, situational awareness and seamless coordination to protect your people and operations at every step. Your safety is our mission.
+121: [B]Our Capabilities[/B]
+122: 24/7 rapid-response coordination centre
+123: Medical assistance and emergency medical evacuation
+124: Crisis management, extraction and repatriation
+125: On-ground support in austere and hostile environments
+126: Pre-travel risk advisory and contingency planning
+127: Situational awareness and real-time threat monitoring
+128: Mental health and emotional support for affected personnel
+129: [B]What You Gain[/B]
+130: Full compliance with corporate Duty of Care obligations and insurance requirements
+131: Peace of mind through proactive intelligence and rapid action
+132: Seamless end-to-end support – before, during and after any incident
+133: Significantly reduced organisational and personal risk worldwide
+134: [B]Our Approach[/B]
+135: Pre-travel risk profiling and bespoke contingency planning
+136: Real-time monitoring and early-warning alerts
+137: Immediate emergency intervention and coordination
+138: Post-incident debrief, psychological support and resilience building
+139: [B]CTA[/B] Ensure your global Duty of Care is professionally covered. 
+140: [B]Button:[/B] Request a Confidential Review today.
+141:
+142:
+143:
+144:
+145: [B]INTELLIGENCE PAGE[/B]
+146: [B]Hero Headline:[/B] Security Intelligence & Risk Consulting 
+147: [B]Sub-headline:[/B] Uncover the facts — no matter where they’re hidden. Tactical approach. Global reach.
+148: [B]Full Introduction[/B] In an increasingly opaque world, access to timely, accurate intelligence is the ultimate competitive advantage. KASPIT Security delivers sophisticated security intelligence and strategic risk consulting based on real elite operational experience. We utilise a full spectrum of disciplines — HUMINT, SIGINT, GEOINT, MASINT, OSINT, and TECHINT — combined with cutting-edge technology to reveal the hidden and unknown, even when no paper trail exists.
+149: Backed by the international network of the KASPIT Group and branches in Austria, Germany and Israel, we turn complex global threats and opportunities into clear, actionable intelligence for executives, corporations and high-net-worth individuals who demand the highest level of discretion and precision.
+150: [B]Our Intelligence Capabilities[/B]
+151: Competitive and geopolitical intelligence
+152: Deep due diligence and background analysis
+153: Threat assessment and early-warning systems
+154: Litigation and dispute intelligence support
+155: Counter-intelligence protection programmes
+156: [B]What You Gain[/B]
+157: Verifiable facts and genuine strategic advantage
+158: Early identification of risks and emerging vulnerabilities
+159: Absolute confidentiality and fully lawful methodologies
+160: Confidence to make high-stakes decisions with clarity
+161: [B]Our Approach[/B]
+162: Confidential briefing and precise intelligence requirements
+163: Multi-source collection across all disciplines
+164: Expert analysis and risk assessment
+165: Actionable strategic recommendations and ongoing support
+166: [B]CTA[/B] Leave it to us to uncover what matters most. 
+167: [B]Button:[/B] Request a Confidential Intelligence Consultation.
+168:
+169: [B]TRAINING PAGE[/B]
+170: [B]Hero Headline:[/B] Elite Training & Capacity Building 
+171: [B]Sub-headline:[/B] Hands-on, intelligence-informed programs that equip executives, teams and high-net-worth individuals with practical skills for real-world threats. Delivered to the same elite standards as our operational services.
+172: [B]Full Introduction[/B] Knowledge alone is not enough — real resilience comes from instinctive skills developed under realistic pressure. KASPIT Security offers bespoke training programs designed for corporations, executives and security professionals who refuse to settle for generic courses. Every program is intelligence-informed, scenario-based and tailored to your exact risk profile, turning theory into muscle memory and confidence.
+173: Conducted in small private groups or one-to-one format with absolute discretion and supported by the international infrastructure of the KASPIT Group, our training bridges the gap between awareness and capability across our branches in Austria, Germany and Israel.
+174: [B]Security Training[/B] Develop the mindset and physical skills that keep you safe in any environment. Our programs include precision shooting (pistol and rifle – defensive and tactical applications), Krav Maga specifically adapted for executives (practical self-defence, threat neutralization and de-escalation), and advanced surveillance detection and anti-ambush techniques.
+175: [B]Travel Safety & HEAT Training[/B] Prepare your people to operate confidently in any part of the world. Our Hostile Environment Awareness Training (HEAT) covers secure travel planning, situational awareness, kidnap avoidance, high-risk environment preparation and crisis response protocols. Each session is customised to your destinations and threat levels.
+176: [B]Medical Training[/B] When seconds count, knowledge saves lives. Our medical training programs are delivered through our partners at Critical Knowledge – official Stop The Bleed® Partner in Austria. Using highly realistic wound simulations, participants receive immersive, scenario-based training including official Stop The Bleed® certification, Active First Responder trauma care, rapid haemorrhage control, tourniquet application and immediate life-saving interventions.
+177: [B]What You Gain[/B]
+178: Instinctive skills that work under real pressure
+179: Full compliance with corporate duty-of-care and insurance standards
+180: Measurable increase in team confidence and capability
+181: Private format with absolute discretion
+182: Official certificates and scheduled refresher training
+183: [B]Our Approach[/B]
+184: Confidential risk and skills-needs assessment
+185: Fully customised program design and scenario planning
+186: Intensive hands-on training with elite, experienced instructors
+187: Post-training evaluation, feedback and ongoing refresher plan
+188: [B]CTA[/B] Build real resilience today. 
+189: [B]Button:[/B] Request a Confidential Training Consultation.
+190:
+191:
+192:
+193:
+194:
+195:
+196: [B]CONTACT PAGE[/B]
+197: [B]Headline:[/B] Start a Confidential Conversation 
+198: [B]Form Intro:[/B] We respond within 12 hours. All inquiries are handled with the highest level of discretion and personal attention.
+199: [B]CTA Button:[/B] Send Message Securely
+200: [B]Contact Details[/B] KASPIT Security – Part of the KASPIT Group Vienna, Austria (European Headquarters) Branches: Germany • Israel Phone: [add your number] Email: [add your email]
+201: We are ready when you are.
+202:
+203: [B]FOOTER (same on every page)[/B]
+204: KASPIT Security – Austria’s Elite Intelligence-Led Security Atelier Part of the international KASPIT Group
+205: Quick links: Services • Training • Security Consulting & Audits • The KASPIT Advantage • About Us • Insights
+206: © 2026 KASPIT Security • All rights reserved 
+207:
+208:

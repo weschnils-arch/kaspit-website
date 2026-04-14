@@ -47,7 +47,7 @@ export default function SecurityManagement() {
         </div>
         <div className="relative z-10 max-w-4xl">
           <span data-reveal className="label-text">Service 02 — Security Management</span>
-          <h1 data-reveal className="heading-xl mt-4 mb-6">
+          <h1 data-reveal className="heading-xl mt-4 mb-6" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
             Strategic Security Management,<br />
             <span className="text-primary">Consulting & Audits</span>
           </h1>
@@ -154,17 +154,16 @@ export default function SecurityManagement() {
           <p className="body-lg mb-10">
             Start with a confidential assessment. We build security strategies that evolve with your organisation.
           </p>
-          <MetalCTA
-            to="/contact"
-            label="Start with a Confidential Assessment"
-            width={320}
-            height={52}
-            icon={
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            }
-          />
+          <div className="flex justify-center">
+            <div style={{ width: 380, display: 'flex' }}>
+              <MetalCTA
+                to="/contact"
+                label="Start with a Confidential Assessment"
+                className="w-full"
+                height={52}
+              />
+            </div>
+          </div>
         </div>
       </section>
     </>

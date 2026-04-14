@@ -6,6 +6,8 @@ interface LiquidMetalButtonProps {
   onClick?: () => void
   className?: string
   type?: 'button' | 'submit'
+  width?: number
+  height?: number
 }
 
 export default function LiquidMetalButton({
@@ -13,6 +15,8 @@ export default function LiquidMetalButton({
   onClick,
   className = '',
   type = 'button',
+  width,
+  height,
 }: LiquidMetalButtonProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
@@ -91,10 +95,12 @@ export default function LiquidMetalButton({
       <button
         ref={buttonRef}
         type={type}
-        className={`relative bg-transparent border-none cursor-pointer outline-none p-0 overflow-hidden w-full sm:w-auto ${className}`}
+        className={`relative bg-transparent border-none cursor-pointer outline-none p-0 overflow-hidden ${width === undefined ? 'w-full sm:w-auto' : ''} ${className}`}
         style={{
           transform: isPressed ? 'scale(0.98)' : 'scale(1)',
           transition: 'transform 0.15s ease',
+          ...(width !== undefined ? { width: `${width}px`, minWidth: `${width}px`, maxWidth: `${width}px` } : {}),
+          ...(height !== undefined ? { height: `${height}px`, minHeight: `${height}px`, maxHeight: `${height}px` } : {}),
         }}
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}

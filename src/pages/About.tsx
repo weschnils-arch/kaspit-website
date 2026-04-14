@@ -22,7 +22,7 @@ export default function About() {
             About <span className="text-primary">KASPIT</span> Security
           </h1>
           <p data-reveal className="body-lg max-w-2xl">
-            Part of the international KASPIT Group -- Founded on real operational excellence.
+            Part of the international KASPIT Group – Founded on real operational excellence.
           </p>
         </div>
       </section>
@@ -64,26 +64,12 @@ export default function About() {
                 He combines this exceptional operational background with an MBA from the
                 University of Minnesota and full Austrian certifications as Professional
                 Detective and Safety Expert. At KASPIT Security he delivers bespoke
-                intelligence-led security solutions -- including strategic consulting and
-                independent audits -- for executives, corporations and high-net-worth
+                intelligence-led security solutions — including strategic consulting and
+                independent audits — for executives, corporations and high-net-worth
                 individuals who expect far more than standard services.
               </p>
             </div>
 
-            {/* Credentials */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 pt-12 border-t border-white/[0.06]">
-              {[
-                { label: 'Military', value: 'IDF Combat Veteran Officer' },
-                { label: 'Education', value: 'MBA, University of Minnesota' },
-                { label: 'Certifications', value: 'Professional Detective (AT)' },
-                { label: 'International', value: 'OSCE Anti-Terror Expert' },
-              ].map((cred) => (
-                <div key={cred.label}>
-                  <span className="label-text text-[0.625rem]">{cred.label}</span>
-                  <p className="text-sm text-text mt-1">{cred.value}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -101,7 +87,7 @@ export default function About() {
           </p>
           <p className="body-lg mb-12">
             Every client receives personal attention and solutions designed exclusively for
-            their needs. Discretion, excellence and results are not marketing words -- they
+            their needs. Discretion, excellence and results are not marketing words — they
             are our operating principles.
           </p>
 
@@ -118,13 +104,13 @@ export default function About() {
       {/* CTA */}
       <section ref={ctaRef} className="section-padding py-24 lg:py-36 text-center">
         <div data-reveal className="max-w-2xl mx-auto">
-          <h2 className="heading-lg mb-6">Meet <span className="text-primary">Maxim</span> Personally</h2>
+          <h2 className="heading-lg mb-6">Meet <span className="text-primary">Maxim</span> personally.</h2>
           <p className="body-lg mb-10">
             Discover how KASPIT Security can protect what matters most to you.
           </p>
           <MetalCTA
             to="/contact"
-            label="Book a Private Consultation"
+            label="Book a private consultation."
             width={280}
             height={52}
             icon={

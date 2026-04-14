@@ -30,7 +30,7 @@ export default function Footer() {
               className="h-9 w-auto mb-6"
             />
             <p className="body-md max-w-xs">
-              Austria's elite intelligence-led security atelier. Part of the international KASPIT Group.
+              KASPIT Security – Austria's Elite Intelligence-Led Security Atelier. Part of the international KASPIT Group.
             </p>
             <div className="mt-6 flex flex-col gap-2">
               <span className="text-sm text-text-muted">Vienna, Austria</span>

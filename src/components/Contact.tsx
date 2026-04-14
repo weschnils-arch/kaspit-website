@@ -49,15 +49,11 @@ export default function Contact() {
         {/* Left content */}
         <div ref={contentRef}>
           <span className="label-text block mb-4">Contact</span>
-          <h2 className="heading-lg text-text mb-6">
+          <h2 className="heading-lg text-text mb-10">
             Start a Confidential
             <br />
             Conversation<span className="text-primary">.</span>
           </h2>
-          <p className="body-lg mb-10">
-            We respond within 12 hours. All inquiries are handled with the highest
-            level of discretion and personal attention.
-          </p>
 
           {/* Contact details */}
           <div className="space-y-6">
@@ -143,17 +139,28 @@ export default function Contact() {
 
             <div>
               <label className="text-[0.7rem] tracking-[0.1em] uppercase text-text-dim block mb-2">Subject</label>
-              <select
-                className="w-full bg-dark border border-dark-500 px-4 py-3 text-sm text-text-muted focus:border-primary/50 focus:outline-none transition-colors"
-              >
-                <option value="">Select a service</option>
-                <option>Risk Assessment</option>
-                <option>Security Consulting</option>
-                <option>Investigations</option>
-                <option>Emergency Assistance</option>
-                <option>Training</option>
-                <option>Other</option>
-              </select>
+              <div className="relative">
+                <select
+                  className="appearance-none w-full bg-dark border border-dark-500 pl-4 pr-12 py-3 text-sm text-text-muted focus:border-primary/50 focus:outline-none transition-colors"
+                >
+                  <option value="">Select a service</option>
+                  <option>Intelligence-Driven Investigations</option>
+                  <option>Strategic Security Management, Consulting & Audits</option>
+                  <option>Independent Security Audits & Compliance Reviews</option>
+                  <option>Emergency Assistance & Duty of Care</option>
+                  <option>Security Intelligence & Risk Consulting</option>
+                  <option>Elite Training & Capacity Building</option>
+                </select>
+                <svg
+                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-text-dim"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                >
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
             </div>
 
             <div>

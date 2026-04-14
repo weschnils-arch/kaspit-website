@@ -79,7 +79,7 @@ export default function Advantage() {
         <div className="relative z-10 max-w-4xl">
           <span data-reveal className="label-text">The KASPIT Advantage</span>
           <h1 data-reveal className="heading-xl mt-4 mb-6">
-            Why KASPIT<br /><span className="text-primary">Stands Alone</span>
+            <span className="whitespace-nowrap">Why KASPIT Security</span><br /><span className="text-primary">Stands Alone</span>
           </h1>
           <p data-reveal className="body-lg max-w-2xl">
             Competitive edge through cutting-edge technology, best practices, and strategic depth.
@@ -145,17 +145,14 @@ export default function Advantage() {
             Our clients choose KASPIT Security because they expect -- and receive -- far more than security.
             They receive a trusted partner who thinks, plans and acts at the highest level.
           </p>
-          <MetalCTA
-            to="/contact"
-            label="Request your confidential risk assessment today"
-            width={320}
-            height={52}
-            icon={
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            }
-          />
+          <div className="flex justify-center">
+            <MetalCTA
+              to="/contact"
+              label="Request your confidential risk assessment today"
+              width={500}
+              height={52}
+            />
+          </div>
         </div>
       </section>
     </>
