@@ -142,11 +142,10 @@ export default function Home() {
               KASPIT Security
             </div>
 
-            <h1 className="hero-title heading-xl mb-8" style={{ overflow: 'visible', paddingBottom: '0.15em' }}>
+            <h1 className="hero-title heading-xl mb-8" style={{ overflow: 'visible', paddingBottom: '0.15em', fontSize: 'clamp(2rem, 4.8vw, 4.25rem)' }}>
               <span className="inline-block" style={{ opacity: 0 }}>Austria's Premier Boutique for</span>
               <br />
-              <span className="inline-block text-primary" style={{ opacity: 0 }}>Intelligence-Led</span>
-              <span className="inline-block" style={{ opacity: 0 }}>&nbsp;Security Management</span>
+              <span className="inline-block text-primary" style={{ opacity: 0 }}>Intelligence-Led Security Management</span>
             </h1>
 
             <p className="hero-sub body-lg max-w-2xl mb-12" style={{ opacity: 0 }}>
