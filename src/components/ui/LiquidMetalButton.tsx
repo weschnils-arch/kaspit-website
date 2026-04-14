@@ -95,7 +95,7 @@ export default function LiquidMetalButton({
       <button
         ref={buttonRef}
         type={type}
-        className={`relative bg-transparent border-none cursor-pointer outline-none p-0 overflow-hidden ${width === undefined ? 'w-full sm:w-auto' : ''} ${className}`}
+        className={`relative bg-transparent border-none cursor-pointer outline-none p-0 overflow-hidden ${width === undefined && !className.includes('w-full') ? 'w-full sm:w-auto' : ''} ${className}`}
         style={{
           transform: isPressed ? 'scale(0.98)' : 'scale(1)',
           transition: 'transform 0.15s ease',
